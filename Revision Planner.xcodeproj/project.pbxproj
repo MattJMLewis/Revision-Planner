@@ -1,0 +1,579 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8384E4F825B36493006F22FE /* Revision_PlannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8384E4F725B36493006F22FE /* Revision_PlannerApp.swift */; };
+		8384E4FA25B36493006F22FE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8384E4F925B36493006F22FE /* ContentView.swift */; };
+		8384E4FC25B36494006F22FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8384E4FB25B36494006F22FE /* Assets.xcassets */; };
+		8384E4FF25B36494006F22FE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8384E4FE25B36494006F22FE /* Preview Assets.xcassets */; };
+		8384E50A25B36494006F22FE /* Revision_PlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8384E50925B36494006F22FE /* Revision_PlannerTests.swift */; };
+		8384E51525B36494006F22FE /* Revision_PlannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8384E51425B36494006F22FE /* Revision_PlannerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8384E50625B36494006F22FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8384E4EC25B36493006F22FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8384E4F325B36493006F22FE;
+			remoteInfo = "Revision Planner";
+		};
+		8384E51125B36494006F22FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8384E4EC25B36493006F22FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8384E4F325B36493006F22FE;
+			remoteInfo = "Revision Planner";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8384E4F425B36493006F22FE /* Revision Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Revision Planner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8384E4F725B36493006F22FE /* Revision_PlannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Revision_PlannerApp.swift; sourceTree = "<group>"; };
+		8384E4F925B36493006F22FE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8384E4FB25B36494006F22FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8384E4FE25B36494006F22FE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8384E50025B36494006F22FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8384E50525B36494006F22FE /* Revision PlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Revision PlannerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8384E50925B36494006F22FE /* Revision_PlannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Revision_PlannerTests.swift; sourceTree = "<group>"; };
+		8384E50B25B36494006F22FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8384E51025B36494006F22FE /* Revision PlannerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Revision PlannerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8384E51425B36494006F22FE /* Revision_PlannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Revision_PlannerUITests.swift; sourceTree = "<group>"; };
+		8384E51625B36494006F22FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8384E4F125B36493006F22FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8384E50225B36494006F22FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8384E50D25B36494006F22FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8384E4EB25B36493006F22FE = {
+			isa = PBXGroup;
+			children = (
+				8384E4F625B36493006F22FE /* Revision Planner */,
+				8384E50825B36494006F22FE /* Revision PlannerTests */,
+				8384E51325B36494006F22FE /* Revision PlannerUITests */,
+				8384E4F525B36493006F22FE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8384E4F525B36493006F22FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8384E4F425B36493006F22FE /* Revision Planner.app */,
+				8384E50525B36494006F22FE /* Revision PlannerTests.xctest */,
+				8384E51025B36494006F22FE /* Revision PlannerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8384E4F625B36493006F22FE /* Revision Planner */ = {
+			isa = PBXGroup;
+			children = (
+				8384E4F725B36493006F22FE /* Revision_PlannerApp.swift */,
+				8384E4F925B36493006F22FE /* ContentView.swift */,
+				8384E4FB25B36494006F22FE /* Assets.xcassets */,
+				8384E50025B36494006F22FE /* Info.plist */,
+				8384E4FD25B36494006F22FE /* Preview Content */,
+			);
+			path = "Revision Planner";
+			sourceTree = "<group>";
+		};
+		8384E4FD25B36494006F22FE /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8384E4FE25B36494006F22FE /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8384E50825B36494006F22FE /* Revision PlannerTests */ = {
+			isa = PBXGroup;
+			children = (
+				8384E50925B36494006F22FE /* Revision_PlannerTests.swift */,
+				8384E50B25B36494006F22FE /* Info.plist */,
+			);
+			path = "Revision PlannerTests";
+			sourceTree = "<group>";
+		};
+		8384E51325B36494006F22FE /* Revision PlannerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8384E51425B36494006F22FE /* Revision_PlannerUITests.swift */,
+				8384E51625B36494006F22FE /* Info.plist */,
+			);
+			path = "Revision PlannerUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8384E4F325B36493006F22FE /* Revision Planner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8384E51925B36494006F22FE /* Build configuration list for PBXNativeTarget "Revision Planner" */;
+			buildPhases = (
+				8384E4F025B36493006F22FE /* Sources */,
+				8384E4F125B36493006F22FE /* Frameworks */,
+				8384E4F225B36493006F22FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Revision Planner";
+			productName = "Revision Planner";
+			productReference = 8384E4F425B36493006F22FE /* Revision Planner.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8384E50425B36494006F22FE /* Revision PlannerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8384E51C25B36494006F22FE /* Build configuration list for PBXNativeTarget "Revision PlannerTests" */;
+			buildPhases = (
+				8384E50125B36494006F22FE /* Sources */,
+				8384E50225B36494006F22FE /* Frameworks */,
+				8384E50325B36494006F22FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8384E50725B36494006F22FE /* PBXTargetDependency */,
+			);
+			name = "Revision PlannerTests";
+			productName = "Revision PlannerTests";
+			productReference = 8384E50525B36494006F22FE /* Revision PlannerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8384E50F25B36494006F22FE /* Revision PlannerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8384E51F25B36494006F22FE /* Build configuration list for PBXNativeTarget "Revision PlannerUITests" */;
+			buildPhases = (
+				8384E50C25B36494006F22FE /* Sources */,
+				8384E50D25B36494006F22FE /* Frameworks */,
+				8384E50E25B36494006F22FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8384E51225B36494006F22FE /* PBXTargetDependency */,
+			);
+			name = "Revision PlannerUITests";
+			productName = "Revision PlannerUITests";
+			productReference = 8384E51025B36494006F22FE /* Revision PlannerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8384E4EC25B36493006F22FE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					8384E4F325B36493006F22FE = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					8384E50425B36494006F22FE = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 8384E4F325B36493006F22FE;
+					};
+					8384E50F25B36494006F22FE = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 8384E4F325B36493006F22FE;
+					};
+				};
+			};
+			buildConfigurationList = 8384E4EF25B36493006F22FE /* Build configuration list for PBXProject "Revision Planner" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8384E4EB25B36493006F22FE;
+			productRefGroup = 8384E4F525B36493006F22FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8384E4F325B36493006F22FE /* Revision Planner */,
+				8384E50425B36494006F22FE /* Revision PlannerTests */,
+				8384E50F25B36494006F22FE /* Revision PlannerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8384E4F225B36493006F22FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8384E4FF25B36494006F22FE /* Preview Assets.xcassets in Resources */,
+				8384E4FC25B36494006F22FE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8384E50325B36494006F22FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8384E50E25B36494006F22FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8384E4F025B36493006F22FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8384E4FA25B36493006F22FE /* ContentView.swift in Sources */,
+				8384E4F825B36493006F22FE /* Revision_PlannerApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8384E50125B36494006F22FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8384E50A25B36494006F22FE /* Revision_PlannerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8384E50C25B36494006F22FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8384E51525B36494006F22FE /* Revision_PlannerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8384E50725B36494006F22FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8384E4F325B36493006F22FE /* Revision Planner */;
+			targetProxy = 8384E50625B36494006F22FE /* PBXContainerItemProxy */;
+		};
+		8384E51225B36494006F22FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8384E4F325B36493006F22FE /* Revision Planner */;
+			targetProxy = 8384E51125B36494006F22FE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		8384E51725B36494006F22FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8384E51825B36494006F22FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8384E51A25B36494006F22FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Revision Planner/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Revision Planner/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mooster311.Revision-Planner";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8384E51B25B36494006F22FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Revision Planner/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Revision Planner/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mooster311.Revision-Planner";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8384E51D25B36494006F22FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Revision PlannerTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mooster311.Revision-PlannerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Revision Planner.app/Revision Planner";
+			};
+			name = Debug;
+		};
+		8384E51E25B36494006F22FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Revision PlannerTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mooster311.Revision-PlannerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Revision Planner.app/Revision Planner";
+			};
+			name = Release;
+		};
+		8384E52025B36494006F22FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Revision PlannerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mooster311.Revision-PlannerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Revision Planner";
+			};
+			name = Debug;
+		};
+		8384E52125B36494006F22FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Revision PlannerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mooster311.Revision-PlannerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Revision Planner";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8384E4EF25B36493006F22FE /* Build configuration list for PBXProject "Revision Planner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8384E51725B36494006F22FE /* Debug */,
+				8384E51825B36494006F22FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8384E51925B36494006F22FE /* Build configuration list for PBXNativeTarget "Revision Planner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8384E51A25B36494006F22FE /* Debug */,
+				8384E51B25B36494006F22FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8384E51C25B36494006F22FE /* Build configuration list for PBXNativeTarget "Revision PlannerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8384E51D25B36494006F22FE /* Debug */,
+				8384E51E25B36494006F22FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8384E51F25B36494006F22FE /* Build configuration list for PBXNativeTarget "Revision PlannerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8384E52025B36494006F22FE /* Debug */,
+				8384E52125B36494006F22FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8384E4EC25B36493006F22FE /* Project object */;
+}
