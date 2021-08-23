@@ -1,0 +1,236 @@
+//
+//  ScheduleProcessor.swift
+//  Revision Planner
+//
+//  Created by Matthew Lewis on 28/03/2021.
+//
+
+import Foundation
+import EventKit
+
+class ScheduleProcessor  {
+    
+    private var calendars: [EKCalendar]
+    private var subject: Subject
+    private var subjectCalendar: EKCalendar
+    private var topics: [Topic]
+    private var sessions: [Session] = []
+    var notScheduled: [Unscheduled] = []
+    
+    
+    init(subject: Subject) {
+        // Need to access calendar, index of calendar data import from, subject and topics
+        // This is all calendars user has
+        self.calendars = CalendarInterface.shared.getCalendars()
+        self.subjectCalendar = CalendarInterface.shared.getCalendarByTitle(title: subject.calendarName())!
+
+        // Run function to
+        self.subject = subject
+        
+        //The user may have accidently scheduled some parts already so we will clear any previously scheduled events
+        
+        // Set topics to empty list or list (
+        if self.subject.topics != nil {
+            self.topics =  Array(self.subject.topics as! Set<Topic>)
+        } else {
+            // This is to allow the program to run in development, if we reach this point than there is an error as a subject should always have topics...
+            self.topics = []
+        }
+        
+        for topic in topics {
+            if topic.sessions != nil {
+                let sessions = Array(topic.sessions as! Set<Session>)
+            
+                
+                for session in sessions {
+                    SessionStorage.shared.delete(id: session.id)
+
+                }
+            }
+        }
+        
+        // Need to clear from calendar too
+        let predicate = CalendarInterface.shared.eventStore.predicateForEvents(withStart: self.subject.startDate, end: self.subject.endDate, calendars: [self.subjectCalendar])
+        let events = CalendarInterface.shared.eventStore.events(matching: predicate).filter({$0.hasRecurrenceRules == false})
+        
+        for event in events {
+            CalendarInterface.shared.deleteEvent(event: event)
+        }
+    }
+
+    func generateNaiveSchedule()
+    {
+        
+        /*
+           Before can continue need to:
+            - Ensure calendar imports only go up to last day of subject [DONE]
+            - Remove a calendar from the used calendar if all topics gone [TO DO]
+            - Add date and time to calendar imported topics [DONE]
+            - Add any days to be excluded from the schedule [TO DO LATER]
+            - Any particular days to be excluded from the schedule [TO DO LATER]
+           Logic if date and time added:
+            - Iterate over each topic [DONE]
+            - Generate calendar entry for topic [NOT DONE]
+            - Generate further entries for topic based on exponent until exceeds end date [DONE]
+           
+           To fix overlaps:
+            - Check all calendars (except the calendars that contain the imported events, if any) for overlap of a session
+            - If overlap is present attempt a 'binary' search placement of the session, if no time found skip to next day (if not excluded) and repeat until the day the next revision session of that topic is scheduled for and alert user once schedule complete
+            - If overlap not present schedule event
+            - Finally need to store both a CoreData instance of the events as well as allow the user to export them to calendar
+            - Will need to add a button in settings to allow the user to sync calendar and CoreData back up.
+            
+ 
+        */
+        
+        let exponent = 1.65
+        let endDate = self.subject.endDate
+        let sessionLength = subject.sessionLength
+        
+        for topic in topics {
+            
+            var i:Double = 1
+            var j:Int = 1
+            var dateExceeded = false
+            let startDay = topic.startDate
+            
+            while !dateExceeded {
+                let delta = Int(pow(i, exponent))
+                
+                
+                let sessionStartTime = DateHelper.addToDate(date: startDay, day: delta)
+                let sessionEndTime = DateHelper.addToDate(date: sessionStartTime, minute: sessionLength)
+                
+                if(sessionStartTime > endDate) {
+                    dateExceeded = true
+                }
+                else {
+                    let session = SessionStorage.shared.add(name: "Session \(j): \(topic.name)", startDate: sessionStartTime, endDate: sessionEndTime, topic: topic)
+                    sessions.append(session)
+                    
+                    let event = EKEvent(eventStore: CalendarInterface.shared.eventStore)
+                    event.title = session.name
+                    event.startDate = session.startDate
+                    event.endDate = session.endDate
+                    event.notes = "This event was automatically generated by `Revision Planner`. Please do not delete it"
+                    event.calendar = self.subjectCalendar
+                
+                    CalendarInterface.shared.createEvent(event: event)
+                    
+                    j += 1
+                    i = i * exponent
+                }
+            }
+        }
+    }
+    
+    func correctNaiveSchedule() {
+        
+        // First we need to generate a list of calendar events we cannot interrupt
+        for session in sessions {
+            fixSession(session: session, calendars: calendars)
+        }
+    
+        
+        // Go through all the sessions added
+        // See if collide at all, if not it is fine
+        // Otherwise, see where it can go and update session.
+    }
+    
+    func fixSession(session: Session, calendars: [EKCalendar]) {
+        // First of all let's check if this session has any clashes, if it doesn't we are don't need
+        // to do anything
+        let predicate = CalendarInterface.shared.eventStore.predicateForEvents(withStart: session.startDate, end: session.endDate, calendars: calendars)
+        let clashes = CalendarInterface.shared.eventStore.events(matching: predicate).filter{$0.isAllDay == false}
+        
+        
+        // Leave if this session is fine
+        if(clashes.count == 0) {
+            return
+        }
+        
+        // In case we have to disband this session, useful for prompt to user showing clashes
+        let originalSessionStart = session.startDate
+        let originalSessionEnd = session.endDate
+        
+        var fixed = false
+        var i = 0
+        var daysScanned = 0
+        
+        let sessionLength = TimeInterval((subject.sessionLength * 60))
+        // This is how many mins to add or subtract from clash
+        let bufferPeriod = Double(10 * 60)
+    
+        session.startDate = DateHelper.copyTimeToOtherDate(timeDate: self.subject.startTime, targetDate: session.startDate)
+        session.endDate = session.startDate + sessionLength
+        
+        
+        while(fixed == false) {
+            if(daysScanned == 7) {
+                // We will break if we have checked 7 days for slots
+                // Can distinguish from a successful exit of loop as fixed will remain false
+                break
+            }
+        
+            // Processing
+            let predicate = CalendarInterface.shared.eventStore.predicateForEvents(withStart: session.startDate, end: session.endDate, calendars: calendars)
+        
+            // We do not want any all day events
+            // Add filter to ensure we are not clashing with the calendar event we inputted into the calendar ourselves
+            let clashes = CalendarInterface.shared.eventStore.events(matching: predicate).filter{$0.isAllDay == false}
+            
+            if(clashes.count > 0) {
+                let latestEvent = clashes.reduce(clashes[0], {$0.endDate > $1.endDate ? $0 : $1})
+                
+                session.startDate = latestEvent.endDate + bufferPeriod
+                session.endDate = session.startDate + sessionLength
+                
+                if(DateHelper.compareTimeOnly(firstDate: session.endDate, secondDate: self.subject.endTime)) {
+                    
+                    session.startDate = DateHelper.addToDate(date: DateHelper.copyTimeToOtherDate(timeDate: self.subject.startTime, targetDate: session.startDate), day: 1)
+                    session.endDate = session.startDate + sessionLength
+                    daysScanned += 1
+                }
+                
+                
+                if(session.endDate > subject.endDate) {
+                    break
+                }
+            }
+            else {
+                fixed = true
+            }
+            
+            i += 1
+        }
+        
+        if(fixed == false) {
+            // Do something about not being able to fit this in the schedule
+            // Revert session back to original time + save last date scanned
+            print("Could not schedule")
+            notScheduled.append(Unscheduled(session: session, originalStartDate: originalSessionStart, originalEndDate: originalSessionEnd))
+        } else if(i > 0) {
+            ScheduleProcessor.updateSession(sessionToUpdate: session, calendarStartDate: originalSessionStart, calendarEndDate: originalSessionEnd)
+        }
+    }
+    
+    static func updateSession(sessionToUpdate: Session, calendarStartDate: Date, calendarEndDate: Date) {
+        SessionStorage.shared.update(uuid: sessionToUpdate.id, values: ["startDate": sessionToUpdate.startDate, "endDate": sessionToUpdate.endDate])
+        
+        let subjectCalendar = CalendarInterface.shared.getCalendarByTitle(title: sessionToUpdate.topic.subject.calendarName())!
+        
+        let predicate = CalendarInterface.shared.eventStore.predicateForEvents(withStart: calendarStartDate, end: calendarEndDate, calendars: [subjectCalendar])
+        let oldEvent = CalendarInterface.shared.eventStore.events(matching: predicate).filter{$0.title == sessionToUpdate.name}[0]
+        
+        CalendarInterface.shared.deleteEvent(event: oldEvent)
+        
+        let newEvent = EKEvent(eventStore: CalendarInterface.shared.eventStore)
+        newEvent.title = sessionToUpdate.name
+        newEvent.startDate = sessionToUpdate.startDate
+        newEvent.endDate = sessionToUpdate.endDate
+        newEvent.notes = "This event was automatically generated by `Revision Planner`. Please do not delete it"
+        newEvent.calendar = subjectCalendar
+
+        CalendarInterface.shared.createEvent(event: newEvent)
+    }
+}

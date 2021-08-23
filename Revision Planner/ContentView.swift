@@ -8,9 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        TabView() {
+            SubjectsView()
+              .tabItem {
+                 Image(systemName: "folder")
+                 Text("Subjects")
+               }
+            TodayView()
+              .tabItem {
+                 Image(systemName: "calendar")
+                 Text("Today")
+               }
+            AddSubjectView()
+              .tabItem {
+                 Image(systemName: "plus")
+                 Text("Add")
+               }
+            Text("Settings")
+                .tabItem {
+                    Image(systemName: "gear")
+                    Text("Settings")
+                }
+        }
     }
 }
 
