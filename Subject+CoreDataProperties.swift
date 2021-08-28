@@ -29,7 +29,6 @@ extension Subject {
     @NSManaged public var excludedStartTimes: [Date]
     @NSManaged public var id: UUID
     @NSManaged public var name: String
-    @NSManaged public var progress: Float
     @NSManaged public var scheduled: Bool
     @NSManaged public var sessionLength: Int
     @NSManaged public var startDate: Date

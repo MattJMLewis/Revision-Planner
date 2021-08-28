@@ -16,6 +16,7 @@ class SubjectsViewModel: ObservableObject {
     private var cancellable: AnyCancellable?
     
     init(subjectPublisher: AnyPublisher<[Subject], Never> = SubjectStorage.shared.subjects.eraseToAnyPublisher()) {
+                
         cancellable = subjectPublisher.sink { [unowned self] subjects in
             self.subjects = subjects
         }

@@ -1,5 +1,5 @@
 //
-//  CardView.swift
+//  SessionCardView.swift
 //  Revision Planner
 //
 //  Created by Matthew Lewis on 24/01/2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CardView: View {
+struct SessionCardView: View {
         
     var subject: String
     var title: String
@@ -17,7 +17,6 @@ struct CardView: View {
         VStack {
             HStack {
                 VStack(alignment: .leading) {
-                
                     Text(title)
                         .font(.headline)
                         .fontWeight(.black)
@@ -41,12 +40,12 @@ struct CardView: View {
             RoundedRectangle(cornerRadius: 10)
                 .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.3), lineWidth: 1)
         )
-        .padding([.horizontal])
+        //.padding([.horizontal])
     }
 }
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(subject: "Biology", title: "Microbiology", time: "In 3 hours")
+        SessionCardView(subject: "Biology", title: "Microbiology", time: "In 3 hours")
     }
 }

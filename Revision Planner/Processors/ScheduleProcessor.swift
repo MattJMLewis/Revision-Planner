@@ -70,7 +70,7 @@ class ScheduleProcessor  {
             - Any particular days to be excluded from the schedule [TO DO LATER]
            Logic if date and time added:
             - Iterate over each topic [DONE]
-            - Generate calendar entry for topic [NOT DONE]
+            - Generate calendar entry for topic [DONE]
             - Generate further entries for topic based on exponent until exceeds end date [DONE]
            
            To fix overlaps:

@@ -12,15 +12,15 @@ struct ContentView: View {
 
     var body: some View {
         TabView() {
-            SubjectsView()
-              .tabItem {
-                 Image(systemName: "folder")
-                 Text("Subjects")
-               }
             TodayView()
               .tabItem {
                  Image(systemName: "calendar")
                  Text("Today")
+               }
+            SubjectsView()
+              .tabItem {
+                 Image(systemName: "folder")
+                 Text("Subjects")
                }
             AddSubjectView()
               .tabItem {
@@ -33,6 +33,16 @@ struct ContentView: View {
                     Text("Settings")
                 }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .onAppear(perform: {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                if success {
+                    print("Notifications enabled")
+                } else if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
+        })
     }
 }
 

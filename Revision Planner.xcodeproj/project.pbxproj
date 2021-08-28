@@ -22,8 +22,14 @@
 		8370971A261E4EA6009C1EFB /* Session+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83709718261E4EA6009C1EFB /* Session+CoreDataClass.swift */; };
 		8370971B261E4EA6009C1EFB /* Session+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83709719261E4EA6009C1EFB /* Session+CoreDataProperties.swift */; };
 		83709720261E4ED2009C1EFB /* SessionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8370971F261E4ED2009C1EFB /* SessionStorage.swift */; };
+		837BAB2A26D422BA00A2DBA9 /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837BAB2926D422BA00A2DBA9 /* ListItemView.swift */; };
+		837BAB2C26D4399F00A2DBA9 /* TopicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837BAB2B26D4399F00A2DBA9 /* TopicsView.swift */; };
+		837BAB2E26D43D7F00A2DBA9 /* SessionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837BAB2D26D43D7F00A2DBA9 /* SessionsView.swift */; };
 		837C5E6126D2EEA4003D4AC8 /* Unscheduled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837C5E6026D2EEA4003D4AC8 /* Unscheduled.swift */; };
 		837C5E6326D2EF7D003D4AC8 /* UnscheduledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837C5E6226D2EF7D003D4AC8 /* UnscheduledView.swift */; };
+		837CC6D126D6D0DE0086D73E /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837CC6D026D6D0DE0086D73E /* SessionView.swift */; };
+		837CC6D426D6D14C0086D73E /* SessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837CC6D326D6D14C0086D73E /* SessionViewModel.swift */; };
+		8383A06126D96C6300EF277A /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8383A06026D96C6300EF277A /* TodayViewModel.swift */; };
 		8384E4F825B36493006F22FE /* Revision_PlannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8384E4F725B36493006F22FE /* Revision_PlannerApp.swift */; };
 		8384E4FA25B36493006F22FE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8384E4F925B36493006F22FE /* ContentView.swift */; };
 		8384E4FC25B36494006F22FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8384E4FB25B36494006F22FE /* Assets.xcassets */; };
@@ -41,7 +47,7 @@
 		83A96FCD25FA7E9E00204880 /* Topic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A96FC925FA7E9E00204880 /* Topic+CoreDataClass.swift */; };
 		83A96FCE25FA7E9E00204880 /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A96FCA25FA7E9E00204880 /* Topic+CoreDataProperties.swift */; };
 		83A96FD325FA7F8D00204880 /* TopicStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A96FD225FA7F8D00204880 /* TopicStorage.swift */; };
-		83AA0E9525BE0F64001602F4 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AA0E9425BE0F64001602F4 /* CardView.swift */; };
+		83AA0E9525BE0F64001602F4 /* SessionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AA0E9425BE0F64001602F4 /* SessionCardView.swift */; };
 		83BCC55A25FAC55A00DE5A93 /* ImportFromCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BCC55925FAC55A00DE5A93 /* ImportFromCalendarView.swift */; };
 		83C7D57426CE76B90055AD48 /* DoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C7D57326CE76B90055AD48 /* DoneView.swift */; };
 		83C7D57626CE92440055AD48 /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C7D57526CE92440055AD48 /* SubjectView.swift */; };
@@ -85,8 +91,15 @@
 		83709718261E4EA6009C1EFB /* Session+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+CoreDataClass.swift"; sourceTree = "<group>"; };
 		83709719261E4EA6009C1EFB /* Session+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8370971F261E4ED2009C1EFB /* SessionStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStorage.swift; sourceTree = "<group>"; };
+		837BAB2926D422BA00A2DBA9 /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
+		837BAB2B26D4399F00A2DBA9 /* TopicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsView.swift; sourceTree = "<group>"; };
+		837BAB2D26D43D7F00A2DBA9 /* SessionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsView.swift; sourceTree = "<group>"; };
 		837C5E6026D2EEA4003D4AC8 /* Unscheduled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unscheduled.swift; sourceTree = "<group>"; };
 		837C5E6226D2EF7D003D4AC8 /* UnscheduledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnscheduledView.swift; sourceTree = "<group>"; };
+		837CC6D026D6D0DE0086D73E /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
+		837CC6D226D6D0F10086D73E /* Revision Planner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Revision Planner.entitlements"; sourceTree = "<group>"; };
+		837CC6D326D6D14C0086D73E /* SessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewModel.swift; sourceTree = "<group>"; };
+		8383A06026D96C6300EF277A /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 		8384E4F425B36493006F22FE /* Revision Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Revision Planner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8384E4F725B36493006F22FE /* Revision_PlannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Revision_PlannerApp.swift; sourceTree = "<group>"; };
 		8384E4F925B36493006F22FE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -110,7 +123,7 @@
 		83A96FC925FA7E9E00204880 /* Topic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataClass.swift"; sourceTree = "<group>"; };
 		83A96FCA25FA7E9E00204880 /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		83A96FD225FA7F8D00204880 /* TopicStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicStorage.swift; sourceTree = "<group>"; };
-		83AA0E9425BE0F64001602F4 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		83AA0E9425BE0F64001602F4 /* SessionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCardView.swift; sourceTree = "<group>"; };
 		83BCC55925FAC55A00DE5A93 /* ImportFromCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFromCalendarView.swift; sourceTree = "<group>"; };
 		83C7D57326CE76B90055AD48 /* DoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneView.swift; sourceTree = "<group>"; };
 		83C7D57526CE92440055AD48 /* SubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectView.swift; sourceTree = "<group>"; };
@@ -193,6 +206,7 @@
 		8384E4F625B36493006F22FE /* Revision Planner */ = {
 			isa = PBXGroup;
 			children = (
+				837CC6D226D6D0F10086D73E /* Revision Planner.entitlements */,
 				833A585126D2A8D60081580C /* Helpers */,
 				834F21352610E91A0010D010 /* Processors */,
 				8399D1562601352E00F7B74E /* Models */,
@@ -251,6 +265,9 @@
 				83C7D57526CE92440055AD48 /* SubjectView.swift */,
 				837C5E6226D2EF7D003D4AC8 /* UnscheduledView.swift */,
 				8369B4EF26D3D61500438724 /* SubjectDetailView.swift */,
+				837BAB2B26D4399F00A2DBA9 /* TopicsView.swift */,
+				837BAB2D26D43D7F00A2DBA9 /* SessionsView.swift */,
+				837CC6D026D6D0DE0086D73E /* SessionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -259,9 +276,10 @@
 			isa = PBXGroup;
 			children = (
 				8384E53725B37106006F22FE /* ProgressBar.swift */,
-				83AA0E9425BE0F64001602F4 /* CardView.swift */,
+				83AA0E9425BE0F64001602F4 /* SessionCardView.swift */,
 				83EC3DE025BF67F700575F7F /* SubjectCardView.swift */,
 				836782CA26D39E5E0001925C /* UnscheduledCardView.swift */,
+				837BAB2926D422BA00A2DBA9 /* ListItemView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -276,6 +294,8 @@
 				83173BDC25FBDA3600D57260 /* ImportFromCalendarViewModel.swift */,
 				83C7D57726CE92720055AD48 /* SubjectDetailViewModel.swift */,
 				8369B4EB26D3B37100438724 /* UnscheduledCardViewModel.swift */,
+				837CC6D326D6D14C0086D73E /* SessionViewModel.swift */,
+				8383A06026D96C6300EF277A /* TodayViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -446,10 +466,12 @@
 				83C7D57626CE92440055AD48 /* SubjectView.swift in Sources */,
 				838A041925D06E1800931AD1 /* RevisionPlanner.xcdatamodeld in Sources */,
 				8370971A261E4EA6009C1EFB /* Session+CoreDataClass.swift in Sources */,
+				837BAB2C26D4399F00A2DBA9 /* TopicsView.swift in Sources */,
 				837C5E6326D2EF7D003D4AC8 /* UnscheduledView.swift in Sources */,
 				83EC3DD725BF536800575F7F /* SubjectsView.swift in Sources */,
 				83C7D57426CE76B90055AD48 /* DoneView.swift in Sources */,
 				8389234225C0ADC100C7E926 /* SubjectsViewModel.swift in Sources */,
+				8383A06126D96C6300EF277A /* TodayViewModel.swift in Sources */,
 				83173BDD25FBDA3600D57260 /* ImportFromCalendarViewModel.swift in Sources */,
 				833A585B25E30A0F000546EA /* AddTopicViewModel.swift in Sources */,
 				83A96FCD25FA7E9E00204880 /* Topic+CoreDataClass.swift in Sources */,
@@ -457,6 +479,7 @@
 				83A96FCE25FA7E9E00204880 /* Topic+CoreDataProperties.swift in Sources */,
 				83BCC55A25FAC55A00DE5A93 /* ImportFromCalendarView.swift in Sources */,
 				8384E53225B36DF2006F22FE /* TodayView.swift in Sources */,
+				837CC6D126D6D0DE0086D73E /* SessionView.swift in Sources */,
 				8370971B261E4EA6009C1EFB /* Session+CoreDataProperties.swift in Sources */,
 				83A96FCB25FA7E9E00204880 /* Subject+CoreDataClass.swift in Sources */,
 				8384E53825B37106006F22FE /* ProgressBar.swift in Sources */,
@@ -465,10 +488,13 @@
 				833A585526D2B2090081580C /* CalendarInterface.swift in Sources */,
 				8384E4F825B36493006F22FE /* Revision_PlannerApp.swift in Sources */,
 				837C5E6126D2EEA4003D4AC8 /* Unscheduled.swift in Sources */,
+				837CC6D426D6D14C0086D73E /* SessionViewModel.swift in Sources */,
 				8337E6AE260FB225006773ED /* SchedulingViewModel.swift in Sources */,
-				83AA0E9525BE0F64001602F4 /* CardView.swift in Sources */,
+				83AA0E9525BE0F64001602F4 /* SessionCardView.swift in Sources */,
 				8399D1582601353F00F7B74E /* DateRange.swift in Sources */,
 				838A041325D06D8500931AD1 /* Persistence.swift in Sources */,
+				837BAB2A26D422BA00A2DBA9 /* ListItemView.swift in Sources */,
+				837BAB2E26D43D7F00A2DBA9 /* SessionsView.swift in Sources */,
 				836782CB26D39E5E0001925C /* UnscheduledCardView.swift in Sources */,
 				83C7D57826CE92720055AD48 /* SubjectDetailViewModel.swift in Sources */,
 				83A96FCC25FA7E9E00204880 /* Subject+CoreDataProperties.swift in Sources */,
@@ -638,6 +664,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Revision Planner/Revision Planner.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Revision Planner/Preview Content\"";
 				DEVELOPMENT_TEAM = YWGPPK985L;
@@ -659,6 +686,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mooster311.Revision-Planner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -669,6 +697,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Revision Planner/Revision Planner.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Revision Planner/Preview Content\"";
 				DEVELOPMENT_TEAM = YWGPPK985L;
@@ -681,6 +710,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mooster311.Revision-Planner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

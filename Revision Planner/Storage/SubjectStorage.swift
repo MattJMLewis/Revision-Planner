@@ -102,7 +102,6 @@ class SubjectStorage: NSObject, ObservableObject {
         let newSubject = Subject(context: context)
         
         newSubject.name = name
-        newSubject.progress = progress
         newSubject.startDate = startDate
         newSubject.endDate = endDate
         newSubject.startTime = startTime

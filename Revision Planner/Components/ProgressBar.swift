@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ProgressBar: View {
+    
     @Binding var progress: Float
+    
     var color: Color {
         
         // 30% = red, 31 % - 70%
@@ -27,7 +29,7 @@ struct ProgressBar: View {
     
     var body: some View {
         ZStack {
-            
+ 
             Circle()
                 .stroke(lineWidth: 20.0)
                 .opacity(0.3)

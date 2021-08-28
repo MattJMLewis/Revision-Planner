@@ -12,20 +12,19 @@ struct DoneView: View {
     @State var openAddSubjectPage:Bool = false
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Text("Subject Added!")
-                    .font(.callout)
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-                    .padding(.top)
-                Text("Please go to the subjects tab and click on your newly added subject to begin scheduling.")
-                    .multilineTextAlignment(.center)
-                Button(action: { openAddSubjectPage = true }) {
-                    Text("Add Another")
-                }.padding(.top, 25)
-                Spacer()
-            }
+        
+        VStack {
+            Text("Subject Added!")
+                .font(.callout)
+                .fontWeight(.bold)
+                .multilineTextAlignment(.center)
+                .padding(.top)
+            Text("Please go to the subjects tab and click on your newly added subject to begin scheduling.")
+                .multilineTextAlignment(.center)
+            Button(action: { openAddSubjectPage = true }) {
+                Text("Add Another")
+            }.padding(.top, 25)
+            Spacer()
         }
         .navigationBarTitle("Subjected Added")
         .navigationBarBackButtonHidden(true)

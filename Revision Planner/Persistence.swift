@@ -16,17 +16,35 @@ struct PersistenceController {
         for i in 0..<10 {
             let newSubject = Subject(context: viewContext)
             newSubject.createdAt = Date()
-            
             newSubject.startDate = Date()
             newSubject.endDate = DateHelper.addToDate(date: Date(), month: 1)
             newSubject.startTime = DateHelper.setTimeOnDate(date: Date(), hour: 7, minute: 0, second: 0)
             newSubject.endTime = DateHelper.addToDate(date: newSubject.startTime, hour: 8)
-            
+            newSubject.sessionLength = 30
             newSubject.scheduled = true
-            newSubject.progress = 0
-            newSubject.name = "New Subject - \(i+1)"
+            newSubject.name = "Subject - \(i+1)"
+            newSubject.id = UUID()
             
-            
+            for j in 0..<5 {
+                let newTopic = Topic(context: viewContext)
+                newTopic.createdAt = Date()
+                newTopic.startDate = DateHelper.addToDate(date: Date(), day: j + 1)
+                newTopic.startDate = DateHelper.addToDate(date: newTopic.startDate, minute: 30)
+                newTopic.name = "Topic - \(j+1)"
+                newTopic.subject = newSubject
+                newTopic.id = UUID()
+                
+                for k in 0..<5 {
+                    let newSession = Session(context: viewContext)
+                    newSession.startDate = DateHelper.addToDate(date: Date(), day: j + k)
+                    newSession.endDate = DateHelper.addToDate(date: newSession.startDate, minute: 30)
+                    newSession.name = "Session - \(k+1)"
+                    newSession.topic = newTopic
+                    newSession.id = UUID()
+                    
+                }
+            }
+                        
         }
         do {
             try viewContext.save()

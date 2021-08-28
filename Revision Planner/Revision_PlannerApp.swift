@@ -81,16 +81,8 @@ extension Sequence where Element: Hashable {
     }
 }
 
-extension Date: Strideable {
-    
-    public func distance(to other: Date) -> TimeInterval {
-           return other.timeIntervalSinceReferenceDate - self.timeIntervalSinceReferenceDate
-       }
+extension Date {
 
-   public func advanced(by n: TimeInterval) -> Date {
-       return self + n
-   }
-    
     static func - (lhs: Date, rhs: Date) -> TimeInterval {
         return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
     }

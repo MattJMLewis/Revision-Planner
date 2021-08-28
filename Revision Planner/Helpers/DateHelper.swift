@@ -58,6 +58,13 @@ class DateHelper {
 
     }
     
+    static func getDayFromDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        
+        return dateFormatter.string(from: date)
+    }
+    
     static func getStringDate(date: Date) -> [String] {
         var output:[String] = []
         
@@ -73,7 +80,64 @@ class DateHelper {
         output.append(String(format:"%d:%02d", hour, minutes))
         
         return output
+    }
+
+    static func getShortDateString(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
         
+        return dateFormatter.string(from: date)
     }
     
+    static func getTimeString(date: Date) -> String {
+        let calendar = Calendar.current
+        
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        
+        return String(format:"%d:%02d", hour, minutes)
+    }
+    
+    static func humanOffsetFromNow(date: Date) -> String {
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .full
+        
+        return formatter.localizedString(for: date, relativeTo: Date())
+    }
+    
+    static func secondsToHoursMinutesSeconds (seconds : Int) -> String {
+        
+        let hour = seconds / 3600
+        let minute = (seconds % 3600) / 60
+        let second = seconds % 60
+        
+        var output = ""
+        
+        if(hour > 0) {
+            output += String(format: "%d:", hour)
+        }
+        
+        if(minute > 0) {
+            output += String(format: "%02d:", minute)
+        }
+        
+        output += String(format: "%02d", second)
+        
+        return output
+    }
+    
+    static func dayDateRange(date: Date) -> [Date] {
+        
+        let start = DateHelper.setTimeOnDate(date: date, hour: 0, minute: 0, second: 0)
+        let end = DateHelper.setTimeOnDate(date: date, hour: 23, minute: 59, second: 59)
+        
+        return [start, end]
+    }
+    
+    static func weekDateRange(date: Date) -> [Date] {
+        let start = DateHelper.setTimeOnDate(date: date, hour: 0, minute: 0, second: 0)
+        let end = DateHelper.setTimeOnDate(date: DateHelper.addToDate(date: date, day: 6), hour: 23, minute: 59, second: 59)
+        
+        return [start, end]
+    }
 }

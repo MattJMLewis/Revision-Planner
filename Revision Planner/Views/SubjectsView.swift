@@ -15,7 +15,6 @@ struct SubjectsView: View {
 
     var body: some View {
         NavigationView {
-            
             if(viewModel.subjects.isEmpty)
             {
                 ScrollView(.vertical) {
@@ -37,7 +36,7 @@ struct SubjectsView: View {
                     VStack(spacing: 30) {
                         VStack(spacing: 10) {
                             ForEach(0..<viewModel.subjects.count) { i in
-                                SubjectCardView(subject: viewModel.subjects[i].name , progress: viewModel.subjects[i].progress)
+                                SubjectCardView(subject: viewModel.subjects[i].name , progress: 0.0)
                                     .contentShape(Rectangle())
                                     .onTapGesture {
                                         index = i

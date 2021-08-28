@@ -49,6 +49,7 @@ class SessionStorage: NSObject, ObservableObject {
         session.setValue(startDate, forKey: "startDate")
         session.setValue(endDate, forKey: "endDate")
         session.setValue(topic, forKey: "topic")
+        session.setValue(false, forKey: "completed")
         
         saveContext()
         
@@ -86,6 +87,87 @@ class SessionStorage: NSObject, ObservableObject {
             debugPrint(fetchError)
         }
         
+    }
+    
+    func fetchSome(count: Int) -> [Session] {
+       
+        let fetchRequest: NSFetchRequest<Session> = NSFetchRequest(entityName: "Session")
+        
+        let dateSortDescriptor = NSSortDescriptor(key: "startDate", ascending: true)
+        fetchRequest.sortDescriptors = [dateSortDescriptor]
+        fetchRequest.fetchLimit = count
+       
+        
+        do {
+            let fetchedResults = try PersistenceController.shared.container.viewContext.fetch(fetchRequest)
+            
+            return fetchedResults
+            
+        } catch {
+            NSLog("Error: could not get subjects")
+        }
+        
+        return []
+    }
+    
+    func fetchBySubject(subject: Subject) -> [Session] {
+               
+        let fetchRequest: NSFetchRequest<Session> = Session.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "topic.subject.id == %@", subject.id as CVarArg)
+        
+        do {
+            let fetchedResults = try PersistenceController.shared.container.viewContext.fetch(fetchRequest)
+            
+            return fetchedResults
+            
+        } catch {
+            NSLog("Error: could not get subjects")
+        }
+        
+        return []
+    }
+    
+    func fetchByDate(startDate: Date, endDate: Date) -> [Session] {
+        let datePredicate = NSPredicate(format: "%@ >= startDate AND %@ <= startDate", endDate as CVarArg, startDate as CVarArg)
+        let dateSortDescriptor = NSSortDescriptor(key: "startDate", ascending: true)
+       
+        let fetchRequest: NSFetchRequest<Session> = Session.fetchRequest()
+
+        
+        fetchRequest.predicate = datePredicate
+        fetchRequest.sortDescriptors = [dateSortDescriptor]
+        
+        do {
+            let fetchedResults = try PersistenceController.shared.container.viewContext.fetch(fetchRequest)
+            return fetchedResults
+        } catch {
+            NSLog("Error: could not get sessions")
+        }
+        
+        return []
+    }
+    
+    func fetchBySubjectAndDates(subject: Subject, startDate:Date, endDate:Date) -> [Session] {
+               
+        let datePredicate = NSPredicate(format: "%@ >= startDate AND %@ <= startDate", endDate as CVarArg, startDate as CVarArg)
+        let subjectPredicate =  NSPredicate(format: "topic.subject.id == %@", subject.id as CVarArg)
+        let predicates = NSCompoundPredicate(type: .and, subpredicates: [datePredicate, subjectPredicate])
+        let dateSortDescriptor = NSSortDescriptor(key: "startDate", ascending: true)
+        
+        let fetchRequest: NSFetchRequest<Session> = Session.fetchRequest()
+        fetchRequest.predicate = predicates
+        fetchRequest.sortDescriptors = [dateSortDescriptor]
+        
+        
+        do {
+            let fetchedResults = try PersistenceController.shared.container.viewContext.fetch(fetchRequest)
+            return fetchedResults
+            
+        } catch {
+            NSLog("Error: could not get subjects")
+        }
+        
+        return []
     }
     
     private func saveContext() {

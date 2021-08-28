@@ -22,11 +22,6 @@ struct SubjectCardView: View {
                         .fontWeight(.black)
                         .foregroundColor(.label)
                         .lineLimit(3)
-                    Text("\((Int(progress * 100)))%")
-                        .font(.subheadline)
-                        .foregroundColor(.label)
-                    
-                    ProgressView(value: progress)
                 }
                 .layoutPriority(100)
          

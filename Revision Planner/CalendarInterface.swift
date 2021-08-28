@@ -11,8 +11,7 @@ import EventKit
 class CalendarInterface {
     
     static var shared = CalendarInterface()
-    fileprivate init() { print("init") }
-
+  
     let eventStore:EKEventStore = EKEventStore()
     
     func reloadEventStore()
