@@ -12,10 +12,11 @@ class SchedulingViewModel: ObservableObject {
 
     var subject: Subject?
         
-    @Published var loadingText:String = "Starting"
+    @Published var loadingText:String = "Scheduling..."
     @Published var showUnscheduledSheet:Bool = false
     @Published var notScheduled:[Unscheduled] = []
     @Published var scheduled:Bool = false
+    @Published var barHidden:Bool = true
     
     
     func setSubject(subject: Subject) {
@@ -26,32 +27,29 @@ class SchedulingViewModel: ObservableObject {
     {
         self.loadingText = "Loading Calendar Entries"
         
-        CalendarInterface.shared.eventStore.requestAccess(to: .event) { (granted, error) in
-            if granted {
-                DispatchQueue.main.async {
- 
-                    self.loadingText = "Initialising Scheduler"
-                    let scheduler = ScheduleProcessor(subject: self.subject!)
-    
-                    self.loadingText = "Generating Naive Schedule"
-                    scheduler.generateNaiveSchedule()
-                    
-                    self.loadingText = "Adjusting for Calendar Conflicts"
-                    scheduler.correctNaiveSchedule()
-                    
-                    if(scheduler.notScheduled.count > 0) {
-                        self.notScheduled = scheduler.notScheduled
-                        self.showUnscheduledSheet = true
-                    }
-                    else {
-                        self.cleanUp()
-                    }
+        
+        self.loadingText = "Initialising Scheduler"
+        let scheduler = ScheduleProcessor(subject: self.subject!)
+        
+        if(scheduler == nil) {
+            // Do something
+            self.loadingText = "Error loading calendars / topics. Please delete this subject and try again."
+            self.barHidden = false
+        }
+        else {
 
-                }
+            self.loadingText = "Generating Naive Schedule"
+            scheduler!.generateNaiveSchedule()
+            
+            self.loadingText = "Adjusting for Calendar Conflicts"
+            scheduler!.correctNaiveSchedule()
+            
+            if(scheduler!.notScheduled.count > 0) {
+                self.notScheduled = scheduler!.notScheduled
+                self.showUnscheduledSheet = true
             }
-            else
-            {
-                print("No calendars")
+            else {
+                self.cleanUp()
             }
         }
     }

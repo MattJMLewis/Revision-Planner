@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddTopicView: View {
-    
+
     @StateObject var viewModel = AddTopicViewModel()
     @State private var showingSheet = false
     
@@ -35,7 +35,7 @@ struct AddTopicView: View {
                                 HStack {
                                     Text(topic.name)
                                     Spacer()
-                                    Text(viewModel.dateFormatter.string(from: topic.startDate))
+                                    Text("\(DateHelper.getTimeString(date: topic.startDate)) \(DateHelper.getShortDateString(date: topic.startDate))")
                                 }
                             }
                             .onDelete(perform: viewModel.deleteTopic)

@@ -29,9 +29,8 @@ struct SubjectCardView: View {
             }
             .padding()
         }
-        .cornerRadius(10)
         .overlay(
-            RoundedRectangle(cornerRadius: 10)
+            Rectangle()
                 .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.3), lineWidth: 1)
         )
         .padding([.horizontal])

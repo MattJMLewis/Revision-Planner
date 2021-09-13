@@ -21,7 +21,7 @@ struct SessionCardView: View {
                         .font(.headline)
                         .fontWeight(.black)
                         .foregroundColor(.label)
-                        .lineLimit(3)
+                        .lineLimit(10)
                     Text(time)
                         .font(.subheadline)
                         .foregroundColor(.label)
@@ -29,8 +29,6 @@ struct SessionCardView: View {
                         .font(.subheadline)
                         .foregroundColor(.secondaryLabel)
                 }
-                .layoutPriority(100)
-         
                 Spacer()
             }
             .padding()
@@ -40,7 +38,6 @@ struct SessionCardView: View {
             RoundedRectangle(cornerRadius: 10)
                 .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.3), lineWidth: 1)
         )
-        //.padding([.horizontal])
     }
 }
 

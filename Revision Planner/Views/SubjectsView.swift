@@ -11,47 +11,27 @@ import CoreData
 struct SubjectsView: View {
    
     @StateObject private var viewModel = SubjectsViewModel()
-    @State var index = 0
 
     var body: some View {
         NavigationView {
             if(viewModel.subjects.isEmpty)
             {
                 ScrollView(.vertical) {
-                    Spacer()
-                    Spacer()
-                    Text("You have no subjects")
+                    Text("No subjects")
                 }.navigationBarTitle("Subjects")
             }
             else {
-                ScrollView(.vertical) {
-                    
-                    Spacer()
-                    
-                    Button(action: {self.viewModel.deleteAllSubjects()})
-                    {
-                        Text("Delete all subjects")
-                    }
-                    
-                    VStack(spacing: 30) {
-                        VStack(spacing: 10) {
-                            ForEach(0..<viewModel.subjects.count) { i in
-                                SubjectCardView(subject: viewModel.subjects[i].name , progress: 0.0)
-                                    .contentShape(Rectangle())
-                                    .onTapGesture {
-                                        index = i
-                                        viewModel.openSubjectPage = true
-                                    }
-                            }
+
+                List {
+                    ForEach(viewModel.subjects) { subject in
+                        NavigationLink(destination: SubjectView(subject: subject)) {
+                            Text(subject.name)
                         }
                     }
+                    .onDelete(perform: viewModel.deleteSubject)
                 }
+                .listStyle(InsetGroupedListStyle())
                 .navigationBarTitle("Subjects")
-                .background(
-                    NavigationLink(destination: SubjectView(subject: viewModel.subjects[index]), isActive: $viewModel.openSubjectPage, label: {
-                        EmptyView()
-                    })
-                )
             }
         }
     }

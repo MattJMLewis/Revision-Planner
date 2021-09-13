@@ -43,24 +43,25 @@ class TodayViewModel: ObservableObject {
     
     @Published var totalSessionsCount:Int = 0
     @Published var completedSessionsCount:Int = 0
-    @Published var percentageComplete:Float = 0.0
+    @Published var percentageComplete:Double = 0.0
     
     @Published var openSessionPage:Bool = false
-    @Published var selectedSession: Session
+    @Published var selectedSession:Session?
     
     init() {
-        self.selectedSession = SessionStorage.shared.fetchSome(count: 1)[0]
         updateData()
     }
     
     func updateData() {
         sessions = SessionStorage.shared.fetchByDate(startDate: currentDateRange[0], endDate: currentDateRange[1])
+        
+
         uncompletedSessions = sessions.filter({$0.completed == false})
         completedSessions = sessions.filter({$0.completed == true})
         
         totalSessionsCount = sessions.count
         completedSessionsCount = completedSessions.count
-        percentageComplete = Float(completedSessionsCount) / Float(totalSessionsCount)
+        percentageComplete = Double(completedSessionsCount) / Double(totalSessionsCount)
     }
     
     func move(increment: Int) {
@@ -102,10 +103,27 @@ class TodayViewModel: ObservableObject {
         else {
             move(increment: -7)
         }
-    
+        
         setPageText()
         updateData()
     
+    }
+    
+    func moveToToday() {
+    
+        if(selectedPeriod == 0) {
+            // Day
+            currentDateRange = DateHelper.dayDateRange(date: Date())
+        }
+        else {
+            // Week
+            currentDateRange = DateHelper.weekDateRange(date: Date())
+        }
+        
+        
+        moved = 0
+        setPageText()
+        updateData()
     }
     
     func setPageText() {

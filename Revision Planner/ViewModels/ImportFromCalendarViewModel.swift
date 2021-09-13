@@ -55,6 +55,6 @@ class ImportFromCalendarViewModel: ObservableObject {
         let currentCalendar = self.calendars[selectedCalendar]
         let predicate = self.eventStore.predicateForEvents(withStart: self.subject.startDate, end: self.subject.endDate, calendars: [currentCalendar])
         
-        self.events = eventStore.events(matching: predicate)
+        self.events = eventStore.events(matching: predicate).filter({$0.isAllDay == false})
     }
 }

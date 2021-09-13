@@ -27,6 +27,8 @@ extension Subject {
     @NSManaged public var endTime: Date
     @NSManaged public var excludedEndTimes: [Date]
     @NSManaged public var excludedStartTimes: [Date]
+    @NSManaged public var excludedDays: [Date]
+    @NSManaged public var excludedWeekdays: [Int]
     @NSManaged public var id: UUID
     @NSManaged public var name: String
     @NSManaged public var scheduled: Bool

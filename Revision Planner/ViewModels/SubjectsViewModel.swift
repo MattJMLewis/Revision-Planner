@@ -11,8 +11,6 @@ import Combine
 class SubjectsViewModel: ObservableObject {
     
     @Published var subjects: [Subject] = []
-    @Published var openSubjectPage: Bool = false
-    
     private var cancellable: AnyCancellable?
     
     init(subjectPublisher: AnyPublisher<[Subject], Never> = SubjectStorage.shared.subjects.eraseToAnyPublisher()) {
@@ -22,12 +20,11 @@ class SubjectsViewModel: ObservableObject {
         }
     }
     
-    func next()
+
+    func deleteSubject(at indexSet: IndexSet)
     {
-        openSubjectPage = true
-    }
-    
-    func deleteAllSubjects() {
-        SubjectStorage.shared.deleteAll()
+        for index in indexSet {
+            SubjectStorage.shared.delete(id: self.subjects[index].id)
+        }
     }
 }

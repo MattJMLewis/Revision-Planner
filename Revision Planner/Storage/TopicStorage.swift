@@ -13,6 +13,9 @@ import Combine
 class TopicStorage: NSObject, ObservableObject {
     
     var topics = CurrentValueSubject<[Topic], Never>([])
+    var context = PersistenceController.shared.container.viewContext
+
+    
     private let topicFetchController: NSFetchedResultsController<Topic>
     
     static let shared: TopicStorage = TopicStorage()
@@ -42,7 +45,7 @@ class TopicStorage: NSObject, ObservableObject {
     
     func add(name: String, startDate: Date, endDate: Date, subject: Subject)
     {
-        let topic = Topic(context: PersistenceController.shared.container.viewContext)
+        let topic = Topic(context: context)
         
         topic.setValue(UUID(), forKey: "id")
         topic.setValue(name, forKey: "name")
@@ -59,8 +62,8 @@ class TopicStorage: NSObject, ObservableObject {
         
         do {
             NSLog("Deleting topic")
-            guard let topic = try PersistenceController.shared.container.viewContext.fetch(fetchTopic).first else { return }
-            PersistenceController.shared.container.viewContext.delete(topic)
+            guard let topic = try context.fetch(fetchTopic).first else { return }
+            context.delete(topic)
             saveContext()
             NSLog("Successfully deleted topic")
         } catch {
@@ -68,10 +71,45 @@ class TopicStorage: NSObject, ObservableObject {
         }
     }
     
+    func update(uuid: UUID, values: Dictionary<String, Any>) {
+        let fetchTopic: NSFetchRequest<Topic> = Topic.fetchRequest(withUUID: uuid)
+        
+        do {
+            if let topic = try context.fetch(fetchTopic).first {
+                for (key, value) in values {
+                    topic.setValue(value, forKey: key)
+                }
+            }
+            
+            saveContext()
+        } catch {
+            let fetchError = error as NSError
+            debugPrint(fetchError)
+        }
+        
+    }
+    
+    func fetchBySubject(subject: Subject) -> [Topic] {
+        let fetchRequest: NSFetchRequest<Topic> = Topic.fetchRequest();
+        fetchRequest.predicate = NSPredicate(format: "subject.id == %@", subject.id as CVarArg)
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "startDate", ascending: true)]
+
+        do {
+            let fetchedResults = try context.fetch(fetchRequest)
+            
+            return fetchedResults
+            
+        } catch {
+            NSLog("Error: could not get subjects")
+        }
+        
+        return []
+    }
+    
     private func saveContext() {
        do {
             //NSLog("Saving context")
-            try PersistenceController.shared.container.viewContext.save()
+            try context.save()
             //NSLog("Successfully saved context")
         } catch {
                 NSLog("ERROR: \(error as NSObject)")

@@ -27,12 +27,14 @@ class CalendarInterface {
     
     func getCalendarByTitle(title: String) -> EKCalendar? {
         let calendars = self.getCalendars()
+        let filtered_calendars = calendars.filter({$0.title == title})
         
-        do {
-            return calendars.filter({$0.title == title})[0]
-        } catch {
+        if(filtered_calendars.count == 0) {
             return nil
         }
+        
+        return filtered_calendars[0]
+        
     }
     
     func createCalendar(title: String) -> EKCalendar? {

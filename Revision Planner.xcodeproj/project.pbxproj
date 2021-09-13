@@ -3,14 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		830002F826DA5903007F79E3 /* TopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830002F726DA5903007F79E3 /* TopicView.swift */; };
+		830002FA26DA590D007F79E3 /* TopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830002F926DA590D007F79E3 /* TopicViewModel.swift */; };
 		83173BDD25FBDA3600D57260 /* ImportFromCalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83173BDC25FBDA3600D57260 /* ImportFromCalendarViewModel.swift */; };
+		831F371926DAA96A001E9047 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831F371826DAA96A001E9047 /* Weekday.swift */; };
+		832C2B3A26EE48E80016C0B5 /* TextFieldAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832C2B3926EE48E80016C0B5 /* TextFieldAlert.swift */; };
 		8337E6A9260FB1F0006773ED /* SchedulingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8337E6A8260FB1F0006773ED /* SchedulingView.swift */; };
 		8337E6AE260FB225006773ED /* SchedulingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8337E6AD260FB225006773ED /* SchedulingViewModel.swift */; };
-		833978A826861296007259CF /* NavigationStack in Frameworks */ = {isa = PBXBuildFile; productRef = 833978A726861296007259CF /* NavigationStack */; };
 		833A585326D2A8E20081580C /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833A585226D2A8E20081580C /* DateHelper.swift */; };
 		833A585526D2B2090081580C /* CalendarInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833A585426D2B2090081580C /* CalendarInterface.swift */; };
 		833A585625E309EE000546EA /* AddTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833A585525E309EE000546EA /* AddTopicView.swift */; };
@@ -37,10 +40,11 @@
 		8384E50A25B36494006F22FE /* Revision_PlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8384E50925B36494006F22FE /* Revision_PlannerTests.swift */; };
 		8384E51525B36494006F22FE /* Revision_PlannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8384E51425B36494006F22FE /* Revision_PlannerUITests.swift */; };
 		8384E53225B36DF2006F22FE /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8384E53125B36DF2006F22FE /* TodayView.swift */; };
-		8384E53825B37106006F22FE /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8384E53725B37106006F22FE /* ProgressBar.swift */; };
 		8389234225C0ADC100C7E926 /* SubjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8389234125C0ADC100C7E926 /* SubjectsViewModel.swift */; };
+		8389EDB726E0002E0029A848 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8389EDB626E0002E0029A848 /* InfoView.swift */; };
 		838A041325D06D8500931AD1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838A041225D06D8500931AD1 /* Persistence.swift */; };
 		838A041925D06E1800931AD1 /* RevisionPlanner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 838A041725D06E1800931AD1 /* RevisionPlanner.xcdatamodeld */; };
+		838FB04526E69BF200C13483 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838FB04426E69BF200C13483 /* CircularProgressView.swift */; };
 		8399D1582601353F00F7B74E /* DateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8399D1572601353F00F7B74E /* DateRange.swift */; };
 		83A96FCB25FA7E9E00204880 /* Subject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A96FC725FA7E9E00204880 /* Subject+CoreDataClass.swift */; };
 		83A96FCC25FA7E9E00204880 /* Subject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A96FC825FA7E9E00204880 /* Subject+CoreDataProperties.swift */; };
@@ -52,6 +56,7 @@
 		83C7D57426CE76B90055AD48 /* DoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C7D57326CE76B90055AD48 /* DoneView.swift */; };
 		83C7D57626CE92440055AD48 /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C7D57526CE92440055AD48 /* SubjectView.swift */; };
 		83C7D57826CE92720055AD48 /* SubjectDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C7D57726CE92720055AD48 /* SubjectDetailViewModel.swift */; };
+		83D2C66626EFB39D00F5AF2D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D2C66526EFB39D00F5AF2D /* CloudKit.framework */; };
 		83DFF41C25D5D613007D7D2B /* SubjectStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DFF41B25D5D613007D7D2B /* SubjectStorage.swift */; };
 		83EC3DD725BF536800575F7F /* SubjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EC3DD625BF536800575F7F /* SubjectsView.swift */; };
 		83EC3DE125BF67F700575F7F /* SubjectCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EC3DE025BF67F700575F7F /* SubjectCardView.swift */; };
@@ -77,7 +82,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		830002F726DA5903007F79E3 /* TopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicView.swift; sourceTree = "<group>"; };
+		830002F926DA590D007F79E3 /* TopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewModel.swift; sourceTree = "<group>"; };
 		83173BDC25FBDA3600D57260 /* ImportFromCalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFromCalendarViewModel.swift; sourceTree = "<group>"; };
+		831F371826DAA96A001E9047 /* Weekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
+		832C2B3926EE48E80016C0B5 /* TextFieldAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlert.swift; sourceTree = "<group>"; };
 		8337E6A8260FB1F0006773ED /* SchedulingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulingView.swift; sourceTree = "<group>"; };
 		8337E6AD260FB225006773ED /* SchedulingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulingViewModel.swift; sourceTree = "<group>"; };
 		833A585226D2A8E20081580C /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
@@ -113,10 +122,11 @@
 		8384E51425B36494006F22FE /* Revision_PlannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Revision_PlannerUITests.swift; sourceTree = "<group>"; };
 		8384E51625B36494006F22FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8384E53125B36DF2006F22FE /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
-		8384E53725B37106006F22FE /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		8389234125C0ADC100C7E926 /* SubjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsViewModel.swift; sourceTree = "<group>"; };
+		8389EDB626E0002E0029A848 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		838A041225D06D8500931AD1 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		838A041825D06E1800931AD1 /* RevisionPlanner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RevisionPlanner.xcdatamodel; sourceTree = "<group>"; };
+		838FB04426E69BF200C13483 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		8399D1572601353F00F7B74E /* DateRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRange.swift; sourceTree = "<group>"; };
 		83A96FC725FA7E9E00204880 /* Subject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subject+CoreDataClass.swift"; sourceTree = "<group>"; };
 		83A96FC825FA7E9E00204880 /* Subject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subject+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -128,6 +138,7 @@
 		83C7D57326CE76B90055AD48 /* DoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneView.swift; sourceTree = "<group>"; };
 		83C7D57526CE92440055AD48 /* SubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectView.swift; sourceTree = "<group>"; };
 		83C7D57726CE92720055AD48 /* SubjectDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectDetailViewModel.swift; sourceTree = "<group>"; };
+		83D2C66526EFB39D00F5AF2D /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		83DFF41B25D5D613007D7D2B /* SubjectStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectStorage.swift; sourceTree = "<group>"; };
 		83EC3DD625BF536800575F7F /* SubjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsView.swift; sourceTree = "<group>"; };
 		83EC3DE025BF67F700575F7F /* SubjectCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCardView.swift; sourceTree = "<group>"; };
@@ -140,7 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				833978A826861296007259CF /* NavigationStack in Frameworks */,
+				83D2C66626EFB39D00F5AF2D /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +201,7 @@
 				8384E50825B36494006F22FE /* Revision PlannerTests */,
 				8384E51325B36494006F22FE /* Revision PlannerUITests */,
 				8384E4F525B36493006F22FE /* Products */,
+				83D2C66426EFB39D00F5AF2D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -268,6 +280,8 @@
 				837BAB2B26D4399F00A2DBA9 /* TopicsView.swift */,
 				837BAB2D26D43D7F00A2DBA9 /* SessionsView.swift */,
 				837CC6D026D6D0DE0086D73E /* SessionView.swift */,
+				830002F726DA5903007F79E3 /* TopicView.swift */,
+				8389EDB626E0002E0029A848 /* InfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -275,11 +289,12 @@
 		8384E53625B370F0006F22FE /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				8384E53725B37106006F22FE /* ProgressBar.swift */,
 				83AA0E9425BE0F64001602F4 /* SessionCardView.swift */,
 				83EC3DE025BF67F700575F7F /* SubjectCardView.swift */,
 				836782CA26D39E5E0001925C /* UnscheduledCardView.swift */,
 				837BAB2926D422BA00A2DBA9 /* ListItemView.swift */,
+				838FB04426E69BF200C13483 /* CircularProgressView.swift */,
+				832C2B3926EE48E80016C0B5 /* TextFieldAlert.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -296,6 +311,7 @@
 				8369B4EB26D3B37100438724 /* UnscheduledCardViewModel.swift */,
 				837CC6D326D6D14C0086D73E /* SessionViewModel.swift */,
 				8383A06026D96C6300EF277A /* TodayViewModel.swift */,
+				830002F926DA590D007F79E3 /* TopicViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -305,8 +321,17 @@
 			children = (
 				8399D1572601353F00F7B74E /* DateRange.swift */,
 				837C5E6026D2EEA4003D4AC8 /* Unscheduled.swift */,
+				831F371826DAA96A001E9047 /* Weekday.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		83D2C66426EFB39D00F5AF2D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83D2C66526EFB39D00F5AF2D /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		83DFF41A25D5D5DB007D7D2B /* Storage */ = {
@@ -336,7 +361,6 @@
 			);
 			name = "Revision Planner";
 			packageProductDependencies = (
-				833978A726861296007259CF /* NavigationStack */,
 			);
 			productName = "Revision Planner";
 			productReference = 8384E4F425B36493006F22FE /* Revision Planner.app */;
@@ -410,7 +434,6 @@
 			);
 			mainGroup = 8384E4EB25B36493006F22FE;
 			packageReferences = (
-				833978A626861296007259CF /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */,
 			);
 			productRefGroup = 8384E4F525B36493006F22FE /* Products */;
 			projectDirPath = "";
@@ -456,9 +479,11 @@
 			files = (
 				833A585625E309EE000546EA /* AddTopicView.swift in Sources */,
 				8369B4EC26D3B37100438724 /* UnscheduledCardViewModel.swift in Sources */,
+				831F371926DAA96A001E9047 /* Weekday.swift in Sources */,
 				83F92FCA25DF07AC00B74837 /* AddSubjectView.swift in Sources */,
 				83DFF41C25D5D613007D7D2B /* SubjectStorage.swift in Sources */,
 				83F92FCF25DF07EF00B74837 /* AddSubjectViewModel.swift in Sources */,
+				8389EDB726E0002E0029A848 /* InfoView.swift in Sources */,
 				8384E4FA25B36493006F22FE /* ContentView.swift in Sources */,
 				833A585326D2A8E20081580C /* DateHelper.swift in Sources */,
 				83A96FD325FA7F8D00204880 /* TopicStorage.swift in Sources */,
@@ -469,12 +494,14 @@
 				837BAB2C26D4399F00A2DBA9 /* TopicsView.swift in Sources */,
 				837C5E6326D2EF7D003D4AC8 /* UnscheduledView.swift in Sources */,
 				83EC3DD725BF536800575F7F /* SubjectsView.swift in Sources */,
+				838FB04526E69BF200C13483 /* CircularProgressView.swift in Sources */,
 				83C7D57426CE76B90055AD48 /* DoneView.swift in Sources */,
 				8389234225C0ADC100C7E926 /* SubjectsViewModel.swift in Sources */,
 				8383A06126D96C6300EF277A /* TodayViewModel.swift in Sources */,
 				83173BDD25FBDA3600D57260 /* ImportFromCalendarViewModel.swift in Sources */,
 				833A585B25E30A0F000546EA /* AddTopicViewModel.swift in Sources */,
 				83A96FCD25FA7E9E00204880 /* Topic+CoreDataClass.swift in Sources */,
+				830002FA26DA590D007F79E3 /* TopicViewModel.swift in Sources */,
 				83709720261E4ED2009C1EFB /* SessionStorage.swift in Sources */,
 				83A96FCE25FA7E9E00204880 /* Topic+CoreDataProperties.swift in Sources */,
 				83BCC55A25FAC55A00DE5A93 /* ImportFromCalendarView.swift in Sources */,
@@ -482,7 +509,6 @@
 				837CC6D126D6D0DE0086D73E /* SessionView.swift in Sources */,
 				8370971B261E4EA6009C1EFB /* Session+CoreDataProperties.swift in Sources */,
 				83A96FCB25FA7E9E00204880 /* Subject+CoreDataClass.swift in Sources */,
-				8384E53825B37106006F22FE /* ProgressBar.swift in Sources */,
 				83EC3DE125BF67F700575F7F /* SubjectCardView.swift in Sources */,
 				8369B4F026D3D61500438724 /* SubjectDetailView.swift in Sources */,
 				833A585526D2B2090081580C /* CalendarInterface.swift in Sources */,
@@ -490,6 +516,7 @@
 				837C5E6126D2EEA4003D4AC8 /* Unscheduled.swift in Sources */,
 				837CC6D426D6D14C0086D73E /* SessionViewModel.swift in Sources */,
 				8337E6AE260FB225006773ED /* SchedulingViewModel.swift in Sources */,
+				832C2B3A26EE48E80016C0B5 /* TextFieldAlert.swift in Sources */,
 				83AA0E9525BE0F64001602F4 /* SessionCardView.swift in Sources */,
 				8399D1582601353F00F7B74E /* DateRange.swift in Sources */,
 				838A041325D06D8500931AD1 /* Persistence.swift in Sources */,
@@ -498,6 +525,7 @@
 				836782CB26D39E5E0001925C /* UnscheduledCardView.swift in Sources */,
 				83C7D57826CE92720055AD48 /* SubjectDetailViewModel.swift in Sources */,
 				83A96FCC25FA7E9E00204880 /* Subject+CoreDataProperties.swift in Sources */,
+				830002F826DA5903007F79E3 /* TopicView.swift in Sources */,
 				834F21372610E93F0010D010 /* ScheduleProcessor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -671,7 +699,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Revision Planner/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -684,9 +712,9 @@
 					"-Xlinker",
 					dynamic_lookup,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mooster311.Revision-Planner";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mjml.Revision-Planner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -703,14 +731,14 @@
 				DEVELOPMENT_TEAM = YWGPPK985L;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Revision Planner/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mooster311.Revision-Planner";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mjml.Revision-Planner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -854,25 +882,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		833978A626861296007259CF /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/matteopuc/swiftui-navigation-stack.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		833978A726861296007259CF /* NavigationStack */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 833978A626861296007259CF /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */;
-			productName = NavigationStack;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		838A041725D06E1800931AD1 /* RevisionPlanner.xcdatamodeld */ = {

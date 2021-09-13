@@ -9,52 +9,26 @@ import SwiftUI
 import CoreData
 
 
-struct CircularProgressView: View {
 
-    var progress: Double
-    var progressText: String
-    var color: Color = Color.orange
-
-
+struct OptionalSessionView: View {
+    
+    var session: Session?
+    
+    init(session: Session?) {
+        self.session = session
+    }
+    
     var body: some View {
         
-        if(progressText != "Completed") {
-            ZStack {
-                Circle()
-                    .stroke(Color(.systemGray4), lineWidth: 5)
-                Circle()
-                    .trim(from: 0, to: CGFloat(self.progress))
-                    .stroke(
-                        color,
-                        style: StrokeStyle(lineWidth: 5, lineCap: .round
-                        )
-                    )
-            }
-            .rotationEffect(Angle(degrees: 270))
-            .overlay(
-                Text(progressText).font(Font.largeTitle.monospacedDigit())
-            )
+        if(session != nil) {
+            SessionView(session: session!)
         }
         else {
-                ZStack {
-                    Circle()
-                        .stroke(Color(.systemGray4), lineWidth: 5)
-                    Circle()
-                        .trim(from: 0, to: CGFloat(self.progress))
-                        .stroke(
-                            color,
-                            style: StrokeStyle(lineWidth: 5, lineCap: .round
-                            )
-                        )
-                }
-                .rotationEffect(Angle(degrees: 270))
-                .overlay(
-                    Label("Completed", systemImage: "checkmark.circle").font(.title3)
-            )
+            Text("No session provided.")
         }
     }
+    
 }
-
 
 struct SessionView: View {
 
@@ -79,7 +53,7 @@ struct SessionView: View {
                         if(viewModel.sessionCompleted) {
                             CircularProgressView(progress: 1, progressText: "Completed", color: Color.green)
                                 .animation(.linear)
-                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 200, height: 200)
                         }
                         else {
                             if(viewModel.timer == nil) {
@@ -88,13 +62,13 @@ struct SessionView: View {
                                     progressText: DateHelper.secondsToHoursMinutesSeconds(seconds: viewModel.timeRemainingSeconds)
                                 )
                                 .animation(.linear)
-                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 200, height: 200)
      
                             }
                             else {
                                 CircularProgressView(progress: viewModel.timeRemainingPerc, progressText: DateHelper.secondsToHoursMinutesSeconds(seconds: viewModel.timeRemainingSeconds))
                                     .animation(.linear)
-                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 200, height: 200)
                                     .onReceive(viewModel.timer!, perform: { _ in
                                         
                                         if(viewModel.timeRemaining <= 0) {
@@ -142,8 +116,17 @@ struct SessionView: View {
                     ListItemView(image: "clock", textLeft: "Start Time", textRight: DateHelper.getTimeString(date: session.startDate))
                     ListItemView(image: "clock.fill", textLeft: "End Time", textRight: DateHelper.getTimeString(date: session.endDate))
                     ListItemView(image: "checkmark.circle", textLeft: "Completed", textRight: viewModel.sessionCompleted ? "Yes": "No")
-                    
                 }
+                
+                Section(header: Text("Topic Details")) {
+                    if(session.topic.details != nil) {
+                        Text(session.topic.details!)
+                    }
+                    ListItemView(image: "calendar", textLeft: "Topic Date", textRight: DateHelper.getShortDateString(date: session.topic.startDate))
+                    ListItemView(image: "clock", textLeft: "Topic Start Time", textRight: DateHelper.getTimeString(date: session.topic.startDate))
+                    ListItemView(image: "clock.fill", textLeft: "Topic End Time", textRight: DateHelper.getTimeString(date: session.topic.endDate))
+                }
+                
                 
                 Section(header: Text("Actions")) {
                     if(viewModel.sessionCompleted) {
@@ -157,14 +140,6 @@ struct SessionView: View {
                             Text("Complete Session")
                                 .foregroundColor(.blue)
                         }
-                    }
-                    Button(action: {}) {
-                        Text("Reschedule")
-                            .foregroundColor(.blue)
-                    }
-                    Button(action: {}) {
-                        Text("Delete Session")
-                            .foregroundColor(.red)
                     }
                 }
             }

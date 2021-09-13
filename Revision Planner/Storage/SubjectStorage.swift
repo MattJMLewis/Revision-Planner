@@ -68,6 +68,20 @@ class SubjectStorage: NSObject, ObservableObject {
         return nil
     }
     
+    func delete(id: UUID) {
+        let fetchSubject: NSFetchRequest<Subject> = Subject.fetchRequest(withUUID: id)
+        
+        do {
+            NSLog("Deleting topic")
+            guard let subject = try context.fetch(fetchSubject).first else { return }
+            context.delete(subject)
+            saveContext()
+            NSLog("Successfully deleted topic")
+        } catch {
+            debugPrint(error)
+        }
+    }
+    
     func deleteFirst()
     {
         let latestSubject = self.fetchFirst()
@@ -97,7 +111,7 @@ class SubjectStorage: NSObject, ObservableObject {
         
     }
     
-    func add(name: String, progress: Float, startDate: Date, endDate: Date, startTime: Date, endTime: Date, sessionLength: Int, excludedStartTimes: [Date], excludedEndTimes: [Date]) -> Subject
+    func add(name: String, progress: Float, startDate: Date, endDate: Date, startTime: Date, endTime: Date, sessionLength: Int, excludedStartTimes: [Date], excludedEndTimes: [Date], excludedDays: [Date], excludedWeekdays: [Int]) -> Subject
     {
         let newSubject = Subject(context: context)
         
@@ -110,6 +124,8 @@ class SubjectStorage: NSObject, ObservableObject {
         newSubject.excludedStartTimes = excludedStartTimes
         newSubject.excludedEndTimes = excludedEndTimes
         newSubject.scheduled = false
+        newSubject.excludedDays = excludedDays
+        newSubject.excludedWeekdays = excludedWeekdays
         
         newSubject.id = UUID()
         newSubject.createdAt = Date()

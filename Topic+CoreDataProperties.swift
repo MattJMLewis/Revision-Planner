@@ -29,6 +29,7 @@ extension Topic {
     @NSManaged public var startDate: Date
     @NSManaged public var sessions: NSSet?
     @NSManaged public var subject: Subject
+    @NSManaged public var details: String?
 
 }
 

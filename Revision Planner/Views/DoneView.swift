@@ -26,12 +26,15 @@ struct DoneView: View {
             }.padding(.top, 25)
             Spacer()
         }
-        .navigationBarTitle("Subjected Added")
+        .navigationBarTitle("Subject Added")
         .navigationBarBackButtonHidden(true)
         .background(
             NavigationLink(
-                destination: AddSubjectView() .navigationBarBackButtonHidden(true)
-                    .navigationBarHidden(true),
+                destination: AddSubjectView()
+                    .navigationBarBackButtonHidden(true)
+                    .navigationBarHidden(true)
+                    .navigationViewStyle(StackNavigationViewStyle())
+                ,
                 isActive: $openAddSubjectPage, label:
             {
                 EmptyView()

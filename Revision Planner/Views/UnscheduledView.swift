@@ -14,17 +14,19 @@ struct UnscheduledView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                if(notScheduled.count > 0)
-                {
-                    ForEach(notScheduled, id:\.self) { unscheduled in
-                        UnscheduledCardView(notScheduled: $notScheduled, unscheduled: unscheduled)
+            ScrollView(.vertical) {
+                LazyVStack {
+                    if(notScheduled.count > 0)
+                    {
+                        ForEach(notScheduled, id:\.self) { unscheduled in
+                            UnscheduledCardView(notScheduled: $notScheduled, unscheduled: unscheduled)
+                        }
                     }
+                    
+                    Spacer()
                 }
-                
-                Spacer()
             }
-            .padding(.top, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+            .padding(.top,  10)
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Unscheduled Sessions")
             .onChange(of: notScheduled) { unscheduled in

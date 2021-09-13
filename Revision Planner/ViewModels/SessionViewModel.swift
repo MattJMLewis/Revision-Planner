@@ -7,7 +7,6 @@
 
 
 import Foundation
-import Foundation
 import Combine
 import UserNotifications
 
@@ -80,7 +79,6 @@ class SessionViewModel: ObservableObject {
     {
         if(self.timer != nil) {
             self.finishTime = DateHelper.addToDate(date: Date(), second: self.timeRemainingSeconds)
-            print(self.timeRemaining)
             self.addNotification(secondsAway: self.timeRemaining)
         }
     }

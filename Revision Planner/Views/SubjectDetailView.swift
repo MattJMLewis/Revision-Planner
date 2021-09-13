@@ -33,16 +33,17 @@ struct SubjectDetailView: View {
                     .pickerStyle(SegmentedPickerStyle()),
                     footer: VStack(alignment: .center, spacing: 25) {
                         Spacer()
+                        
                         if(viewModel.displayMode == 0) {
-                            ProgressBar(progress: $viewModel.percentageCompleteThisWeek)
-                                    .aspectRatio(contentMode: .fit)
+                            CircularProgressView(progress: viewModel.percentageCompleteThisWeek, progressText: "\(Int(viewModel.percentageCompleteThisWeek * 100))%")
+                                .frame(width: 200, height: 200)
                           
                             Text("\(viewModel.completedSessionsThisWeek)/\(viewModel.totalSessionsThisWeek) sessions completed this week")
                             
                         }
                         else {
-                            ProgressBar(progress: $viewModel.percentageComplete)
-                                    .aspectRatio(contentMode: .fit)
+                            CircularProgressView(progress: viewModel.percentageComplete, progressText: "\(Int(viewModel.percentageComplete * 100))%")
+                                .frame(width: 200, height: 200)
                           
                             Text("\(viewModel.completedSessions)/\(viewModel.totalSessions) sessions completed overall")
 
@@ -93,7 +94,7 @@ struct SubjectDetailView: View {
                             showCalendarName = true
                         }
                     ListItemView(image: "stopwatch", textLeft: "Session Length (min)", textRight: String(subject.sessionLength))
-                    NavigationLink(destination: TopicsView(topics: subject.topics)){
+                    NavigationLink(destination: TopicsView(subject: subject)){
                         ListItemView(image: "folder", textLeft: "Topics")
                     }
                 }
@@ -112,18 +113,12 @@ struct SubjectDetailView: View {
                     ListItemView(image: "clock", textLeft: "Start Time", textRight: DateHelper.getTimeString(date: subject.startTime))
                     ListItemView(image: "clock.fill", textLeft: "End Time", textRight: DateHelper.getTimeString(date: subject.endTime))
                 }
-                
-                Section(header: Text("Actions")) {
-                    Button(action: {}) {
-                        Text("Resync with Calendar")
-                            .foregroundColor(.blue)
-                    }
-                    Button(action: {}) {
-                        Text("Delete Subject")
-                            .foregroundColor(.red)
-                  }
-                }
             }
+            .background(
+                NavigationLink(destination: SubjectsView(), isActive: $viewModel.openSubjectsPage, label: {
+                    EmptyView()
+                })
+            )
         }
         .navigationTitle(subject.name)
         .navigationBarTitleDisplayMode(.inline)
@@ -133,6 +128,9 @@ struct SubjectDetailView: View {
                 EmptyView()
             })
         )
+        .onAppear() {
+            self.viewModel.performCalculations()
+        }
     }
 }
 

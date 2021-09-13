@@ -25,13 +25,16 @@ struct TodayView: View {
                         })
                         .pickerStyle(SegmentedPickerStyle())
                     },
-                    footer: VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 25) {
+                    footer: VStack(alignment: .center, spacing: 25) {
                         if(viewModel.totalSessionsCount == 0) {
                             Text("No sessions")
                         } else {
                             Spacer()
-                            ProgressBar(progress: $viewModel.percentageComplete)
-                                .aspectRatio(contentMode: .fill)
+                            
+                            
+                            CircularProgressView(progress: viewModel.percentageComplete, progressText: "\(Int(viewModel.percentageComplete * 100))%")
+                                .frame(width: 200, height: 200)
+                                
                                             
                             Text("\(viewModel.completedSessionsCount)/\(viewModel.totalSessionsCount) sessions completed")
                     
@@ -51,15 +54,30 @@ struct TodayView: View {
                         }
                     }
                     
-                ) {}
+                    
+                )
+                {}
             }
             .navigationBarTitle(viewModel.barTitle)
             .listStyle(InsetGroupedListStyle())
+            .background(
+                NavigationLink(destination: OptionalSessionView(session: viewModel.selectedSession), isActive: $viewModel.openSessionPage, label: {
+                        EmptyView()
+                    }
+                )
+            )
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: { viewModel.moveBackward() }) {
                         Image(systemName: "arrow.left")
                             .font(.title)
+                    }
+                }
+                
+                ToolbarItem(placement: .principal) {
+                    Button(action: { viewModel.moveToToday() }) {
+                        Image(systemName: "arrow.uturn.left")
+                            .font(.title2)
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -69,11 +87,9 @@ struct TodayView: View {
                     }
                 }
             }
-            .background(
-                NavigationLink(destination: SessionView(session: viewModel.selectedSession), isActive: $viewModel.openSessionPage, label: {
-                    EmptyView()
-                })
-            )
+            .onAppear() {
+                viewModel.updateData()
+            }
         }
     }
 }

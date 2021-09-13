@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Foundation
 import Combine
 
 class SubjectDetailViewModel: ObservableObject {
@@ -21,11 +20,11 @@ class SubjectDetailViewModel: ObservableObject {
         }
     }
     
-    @Published var percentageCompleteThisWeek:Float = 0.0
+    @Published var percentageCompleteThisWeek:Double = 0.0
     @Published var totalSessionsThisWeek:Int = 0
     @Published var completedSessionsThisWeek:Int = 0
     
-    @Published var percentageComplete:Float = 0.0
+    @Published var percentageComplete:Double = 0.0
     @Published var totalSessions:Int = 1
     @Published var completedSessions:Int = 0
     
@@ -33,6 +32,7 @@ class SubjectDetailViewModel: ObservableObject {
     @Published var upcomingSessions:[Session] = []
     
     @Published var openSessionPage:Bool = false
+    @Published var openSubjectsPage:Bool = false
     @Published var selectedSession: Session
     
     private var subject:Subject
@@ -40,7 +40,6 @@ class SubjectDetailViewModel: ObservableObject {
     
     init(subject: Subject) {
         self.subject = subject
-        
         
         // Quick fix
         let allSessions = SessionStorage.shared.fetchBySubject(subject: subject)
@@ -65,7 +64,7 @@ class SubjectDetailViewModel: ObservableObject {
         
         if(totalSessionsThisWeek == 0) {
             displayMode = 1
-            upcomingSessions = SessionStorage.shared.fetchSome(count: 4)
+            upcomingSessions = Array(SessionStorage.shared.fetchBySubject(subject: self.subject).prefix(upTo: 5) as! Set<Session>)
             
             return
             
@@ -75,8 +74,8 @@ class SubjectDetailViewModel: ObservableObject {
         completedSessionsThisWeek = thisWeeksSessions.filter({$0.completed == true}).count
         completedSessions = allSessions.filter({$0.completed == true}).count
         
-        percentageCompleteThisWeek = Float(completedSessionsThisWeek) / Float(totalSessionsThisWeek)
-        percentageComplete = Float(completedSessions) / Float(totalSessions)
+        percentageCompleteThisWeek = Double(completedSessionsThisWeek) / Double(totalSessionsThisWeek)
+        percentageComplete = Double(completedSessions) / Double(totalSessions)
 
     }
 }

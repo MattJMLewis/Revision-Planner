@@ -13,6 +13,8 @@ import Combine
 class SessionStorage: NSObject, ObservableObject {
     
     var sessions = CurrentValueSubject<[Session], Never>([])
+    var context = PersistenceController.shared.container.viewContext
+
     private let sessionFetchController: NSFetchedResultsController<Session>
     
     static let shared: SessionStorage = SessionStorage()
@@ -24,7 +26,7 @@ class SessionStorage: NSObject, ObservableObject {
         
         sessionFetchController = NSFetchedResultsController(
             fetchRequest: sessionFetchRequest,
-            managedObjectContext: PersistenceController.shared.container.viewContext,
+            managedObjectContext: context,
             sectionNameKeyPath: nil, cacheName: nil
         )
         
@@ -42,7 +44,7 @@ class SessionStorage: NSObject, ObservableObject {
     
     func add(name: String, startDate: Date, endDate: Date, topic: Topic) -> Session
     {
-        let session = Session(context: PersistenceController.shared.container.viewContext)
+        let session = Session(context: context)
         
         session.setValue(UUID(), forKey: "id")
         session.setValue(name, forKey: "name")
@@ -62,8 +64,8 @@ class SessionStorage: NSObject, ObservableObject {
         
         do {
             //NSLog("Deleting session")
-            guard let topic = try PersistenceController.shared.container.viewContext.fetch(fetchSession).first else { return }
-            PersistenceController.shared.container.viewContext.delete(topic)
+            guard let topic = try context.fetch(fetchSession).first else { return }
+            context.delete(topic)
             saveContext()
             //NSLog("Successfully deleted session")
         } catch {
@@ -75,7 +77,7 @@ class SessionStorage: NSObject, ObservableObject {
         let fetchSession: NSFetchRequest<Session> = Session.fetchRequest(withUUID: uuid)
         
         do {
-            if let session = try PersistenceController.shared.container.viewContext.fetch(fetchSession).first {
+            if let session = try context.fetch(fetchSession).first {
                 for (key, value) in values {
                     session.setValue(value, forKey: key)
                 }
@@ -99,7 +101,7 @@ class SessionStorage: NSObject, ObservableObject {
        
         
         do {
-            let fetchedResults = try PersistenceController.shared.container.viewContext.fetch(fetchRequest)
+            let fetchedResults = try context.fetch(fetchRequest)
             
             return fetchedResults
             
@@ -116,7 +118,7 @@ class SessionStorage: NSObject, ObservableObject {
         fetchRequest.predicate = NSPredicate(format: "topic.subject.id == %@", subject.id as CVarArg)
         
         do {
-            let fetchedResults = try PersistenceController.shared.container.viewContext.fetch(fetchRequest)
+            let fetchedResults = try context.fetch(fetchRequest)
             
             return fetchedResults
             
@@ -138,7 +140,7 @@ class SessionStorage: NSObject, ObservableObject {
         fetchRequest.sortDescriptors = [dateSortDescriptor]
         
         do {
-            let fetchedResults = try PersistenceController.shared.container.viewContext.fetch(fetchRequest)
+            let fetchedResults = try context.fetch(fetchRequest)
             return fetchedResults
         } catch {
             NSLog("Error: could not get sessions")
@@ -160,7 +162,24 @@ class SessionStorage: NSObject, ObservableObject {
         
         
         do {
-            let fetchedResults = try PersistenceController.shared.container.viewContext.fetch(fetchRequest)
+            let fetchedResults = try context.fetch(fetchRequest)
+            return fetchedResults
+            
+        } catch {
+            NSLog("Error: could not get subjects")
+        }
+        
+        return []
+    }
+    
+    func fetchByTopic(topic: Topic) -> [Session] {
+        let fetchRequest: NSFetchRequest<Session> = Session.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "topic.id == %@", topic.id! as CVarArg)
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "startDate", ascending: true)]
+        
+        do {
+            let fetchedResults = try context.fetch(fetchRequest)
+            
             return fetchedResults
             
         } catch {
@@ -173,7 +192,7 @@ class SessionStorage: NSObject, ObservableObject {
     private func saveContext() {
        do {
             //NSLog("Saving context")
-            try PersistenceController.shared.container.viewContext.save()
+            try context.save()
             //NSLog("Successfully saved context")
         } catch {
                 NSLog("ERROR: \(error as NSObject)")

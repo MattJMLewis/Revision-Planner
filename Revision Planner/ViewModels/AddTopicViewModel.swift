@@ -16,13 +16,10 @@ class AddTopicViewModel: ObservableObject {
     @Published var openContentPage:Bool = false
 
     
-    @Published var dateFormatter = DateFormatter()
     
     init() {
         self.subject = SubjectStorage.shared.fetchFirst()!
         self.topics = Array(self.subject.topics as! Set<Topic>)
-        
-        self.dateFormatter.dateStyle = .short
     }
     
     func deleteTopic(at indexSet: IndexSet)

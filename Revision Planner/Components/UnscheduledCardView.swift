@@ -14,6 +14,7 @@ struct UnscheduledCardView: View {
     var unscheduled: Unscheduled
     @State var times: [String] = []
     @State var finishTimes: [String] = []
+    @State var buttonClicked: Bool = false
     
     @StateObject private var viewModel = UnscheduledCardViewModel()
 
@@ -46,17 +47,23 @@ struct UnscheduledCardView: View {
                     }
                     HStack {
                         Button(action: {
-                            notScheduled.remove(at: notScheduled.firstIndex(of: unscheduled)!)
-                            viewModel.deleteSession(unscheduled: unscheduled)
-                            
+                            if(!buttonClicked) {
+                                buttonClicked = true
+                                notScheduled.remove(at: notScheduled.firstIndex(of: unscheduled)!)
+                                viewModel.deleteSession(unscheduled: unscheduled)
+                            }
                         }) {
                             Text("Delete Session")
                                 .foregroundColor(.red)
                         }
                         Spacer()
                         Button(action: {
+                            if(!buttonClicked) {
+                                buttonClicked = true
                                 notScheduled.remove(at: notScheduled.firstIndex(of: unscheduled)!)
-                                viewModel.overrideClash(unscheduled: unscheduled)})
+                                viewModel.overrideClash(unscheduled: unscheduled)
+                            }
+                        })
                         {
                             Text("Override Clash")
                             

@@ -10,20 +10,34 @@ import CoreData
 
 struct TopicsView: View {
     
-    var subjectTopics: [Topic]
+    var subject: Subject
+    @State var topics: [Topic]
+
+    init(subject: Subject) {
+        self.subject = subject
+        self.topics = TopicStorage.shared.fetchBySubject(subject: subject)
+    }
     
-    init(topics: NSSet?) {
-        subjectTopics = Array(topics as! Set<Topic>)
+    func deleteTopic(indexSet: IndexSet) {
+        for index in indexSet {
+            TopicStorage.shared.delete(id: topics[index].id!)
+            self.topics = TopicStorage.shared.fetchBySubject(subject: subject)
+
+        }
     }
     
     var body: some View {
         List {
             Section(header: Text("Topics")) {
-                ForEach(subjectTopics) { topic in
-                    NavigationLink(destination: SessionsView(sessions: topic.sessions)) {
-                        Text(topic.name)
+                ForEach(topics) { topic in
+                    NavigationLink(destination: TopicView(topic: topic)) {
+                        HStack {
+                            Text(topic.name)
+                            Spacer()
+                            Text(DateHelper.getShortDateString(date: topic.startDate))
+                        }
                     }
-                }
+                }.onDelete(perform: deleteTopic)
             }
         }
         .navigationTitle("Topics")
@@ -38,6 +52,6 @@ struct TopicsView_Previews: PreviewProvider {
         let fetchRequest: NSFetchRequest<Subject> = NSFetchRequest(entityName: "Subject")
         let subjects = try! context.fetch(fetchRequest)
         
-        TopicsView(topics: subjects[0].topics)
+        TopicsView(subject: subjects[0])
     }
 }
