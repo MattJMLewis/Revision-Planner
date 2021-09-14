@@ -30,6 +30,8 @@ struct ImportFromCalendarView: View {
                             ForEach(viewModel.events, id:\.self) { event in
                                 HStack {
                                     Text(event.title)
+                                    Spacer()
+                                    Text("\(DateHelper.getTimeString(date: event.startDate)) \(DateHelper.getShortDateString(date: event.startDate))")
                                 }
                             }
                         }

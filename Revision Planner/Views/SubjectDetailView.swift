@@ -94,7 +94,7 @@ struct SubjectDetailView: View {
                             showCalendarName = true
                         }
                     ListItemView(image: "stopwatch", textLeft: "Session Length (min)", textRight: String(subject.sessionLength))
-                    NavigationLink(destination: TopicsView(subject: subject)){
+                    NavigationLink(destination: NavigationLazyView(TopicsView(subject: self.subject))){
                         ListItemView(image: "folder", textLeft: "Topics")
                     }
                 }

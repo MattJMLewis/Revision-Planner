@@ -49,38 +49,44 @@ struct SessionView: View {
                     VStack(alignment: .center) {
                     
                         Spacer()
+                        HStack {
+                            Spacer()
                         
-                        if(viewModel.sessionCompleted) {
-                            CircularProgressView(progress: 1, progressText: "Completed", color: Color.green)
-                                .animation(.linear)
-                                .frame(width: 200, height: 200)
-                        }
-                        else {
-                            if(viewModel.timer == nil) {
-                                CircularProgressView(
-                                    progress: viewModel.timeRemainingPerc,
-                                    progressText: DateHelper.secondsToHoursMinutesSeconds(seconds: viewModel.timeRemainingSeconds)
-                                )
-                                .animation(.linear)
-                                .frame(width: 200, height: 200)
-     
-                            }
-                            else {
-                                CircularProgressView(progress: viewModel.timeRemainingPerc, progressText: DateHelper.secondsToHoursMinutesSeconds(seconds: viewModel.timeRemainingSeconds))
+                            if(viewModel.sessionCompleted) {
+                                
+                                CircularProgressView(progress: 1, progressText: "Completed", color: Color.green)
                                     .animation(.linear)
                                     .frame(width: 200, height: 200)
-                                    .onReceive(viewModel.timer!, perform: { _ in
-                                        
-                                        if(viewModel.timeRemaining <= 0) {
-                                            viewModel.completeSession()
-                                        }
-                                        else {
-                                            viewModel.timeRemaining -= 0.2
-                                            viewModel.timeRemainingSeconds = Int(viewModel.timeRemaining.rounded(.up))
-                                            viewModel.timeRemainingPerc = viewModel.timeRemaining / viewModel.totalTime
-                                        }
-                                    })
                             }
+                            else {
+                                if(viewModel.timer == nil) {
+                                    CircularProgressView(
+                                        progress: viewModel.timeRemainingPerc,
+                                        progressText: DateHelper.secondsToHoursMinutesSeconds(seconds: viewModel.timeRemainingSeconds)
+                                    )
+                                    .animation(.linear)
+                                    .frame(width: 200, height: 200)
+         
+                                }
+                                else {
+                                    CircularProgressView(progress: viewModel.timeRemainingPerc, progressText: DateHelper.secondsToHoursMinutesSeconds(seconds: viewModel.timeRemainingSeconds))
+                                        .animation(.linear)
+                                        .frame(width: 200, height: 200)
+                                        .onReceive(viewModel.timer!, perform: { _ in
+                                            
+                                            if(viewModel.timeRemaining <= 0) {
+                                                viewModel.completeSession()
+                                            }
+                                            else {
+                                                viewModel.timeRemaining -= 0.2
+                                                viewModel.timeRemainingSeconds = Int(viewModel.timeRemaining.rounded(.up))
+                                                viewModel.timeRemainingPerc = viewModel.timeRemaining / viewModel.totalTime
+                                            }
+                                        })
+                                }
+                            }
+                            
+                            Spacer()
                         }
                         
                         Spacer()

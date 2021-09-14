@@ -19,13 +19,14 @@ class AddTopicViewModel: ObservableObject {
     
     init() {
         self.subject = SubjectStorage.shared.fetchFirst()!
-        self.topics = Array(self.subject.topics as! Set<Topic>)
+        self.topics = Array(self.subject.topics as! Set<Topic>).sorted(by: {
+            $0.startDate.compare($1.startDate) == .orderedAscending
+        })
     }
     
     func deleteTopic(at indexSet: IndexSet)
     {
         for index in indexSet {
-            print(index)
             let topic = Array(subject.topics as! Set<Topic>)[index]
             
             TopicStorage.shared.delete(id: topic.id!)
@@ -36,7 +37,9 @@ class AddTopicViewModel: ObservableObject {
     
     func updateTopics()
     {
-        topics = Array(self.subject.topics as! Set<Topic>)
+        topics = Array(self.subject.topics as! Set<Topic>).sorted(by: {
+            $0.startDate.compare($1.startDate) == .orderedAscending
+        })
     }
     
     func scheduleNow()
