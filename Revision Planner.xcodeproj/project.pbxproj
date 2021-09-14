@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		830002F826DA5903007F79E3 /* TopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830002F726DA5903007F79E3 /* TopicView.swift */; };
-		830002FA26DA590D007F79E3 /* TopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830002F926DA590D007F79E3 /* TopicViewModel.swift */; };
 		83173BDD25FBDA3600D57260 /* ImportFromCalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83173BDC25FBDA3600D57260 /* ImportFromCalendarViewModel.swift */; };
 		831F371926DAA96A001E9047 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831F371826DAA96A001E9047 /* Weekday.swift */; };
 		832C2B3A26EE48E80016C0B5 /* TextFieldAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832C2B3926EE48E80016C0B5 /* TextFieldAlert.swift */; };
@@ -83,7 +82,6 @@
 
 /* Begin PBXFileReference section */
 		830002F726DA5903007F79E3 /* TopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicView.swift; sourceTree = "<group>"; };
-		830002F926DA590D007F79E3 /* TopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewModel.swift; sourceTree = "<group>"; };
 		83173BDC25FBDA3600D57260 /* ImportFromCalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFromCalendarViewModel.swift; sourceTree = "<group>"; };
 		831F371826DAA96A001E9047 /* Weekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
 		832C2B3926EE48E80016C0B5 /* TextFieldAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlert.swift; sourceTree = "<group>"; };
@@ -311,7 +309,6 @@
 				8369B4EB26D3B37100438724 /* UnscheduledCardViewModel.swift */,
 				837CC6D326D6D14C0086D73E /* SessionViewModel.swift */,
 				8383A06026D96C6300EF277A /* TodayViewModel.swift */,
-				830002F926DA590D007F79E3 /* TopicViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -501,7 +498,6 @@
 				83173BDD25FBDA3600D57260 /* ImportFromCalendarViewModel.swift in Sources */,
 				833A585B25E30A0F000546EA /* AddTopicViewModel.swift in Sources */,
 				83A96FCD25FA7E9E00204880 /* Topic+CoreDataClass.swift in Sources */,
-				830002FA26DA590D007F79E3 /* TopicViewModel.swift in Sources */,
 				83709720261E4ED2009C1EFB /* SessionStorage.swift in Sources */,
 				83A96FCE25FA7E9E00204880 /* Topic+CoreDataProperties.swift in Sources */,
 				83BCC55A25FAC55A00DE5A93 /* ImportFromCalendarView.swift in Sources */,
@@ -694,7 +690,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Revision Planner/Revision Planner.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Revision Planner/Preview Content\"";
 				DEVELOPMENT_TEAM = YWGPPK985L;
 				ENABLE_BITCODE = NO;
@@ -728,7 +724,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Revision Planner/Revision Planner.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Revision Planner/Preview Content\"";
 				DEVELOPMENT_TEAM = YWGPPK985L;
 				ENABLE_PREVIEWS = YES;

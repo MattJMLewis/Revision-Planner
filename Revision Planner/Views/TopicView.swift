@@ -12,13 +12,13 @@ struct TopicView: View {
     
     var topic: Topic
     @State var sessions: [Session]
-    
-    @ObservedObject private var viewModel: TopicViewModel
+    @State var details:String
+    @State var openTextAlert:Bool = false
     
     init(topic: Topic) {
         self.topic = topic
-        self.viewModel = TopicViewModel(topic: self.topic)
-        self.sessions = SessionStorage.shared.fetchByTopic(topic: topic)
+        self.sessions = []
+        self.details = topic.details ?? ""
     }
     
     func deleteSession(indexSet: IndexSet) {
@@ -33,11 +33,11 @@ struct TopicView: View {
         VStack {
             List {
                 Section(header: Text("General")) {
-                    ListItemView(image: "info.circle", textLeft: "Name", textRight: viewModel.topic.name)
-                    ListItemView(image: "calendar.badge.plus", textLeft: "Date", textRight: DateHelper.getShortDateString(date: viewModel.topic.startDate))
-                    ListItemView(image: "clock", textLeft: "Start Time", textRight: DateHelper.getTimeString(date: viewModel.topic.startDate))
-                    ListItemView(image: "clock.fill", textLeft: "End Time", textRight: DateHelper.getTimeString(date: viewModel.topic.endDate))
-                    ListItemView(image: "info.circle", textLeft: "Subject", textRight: viewModel.topic.subject.name)
+                    ListItemView(image: "info.circle", textLeft: "Name", textRight: topic.name)
+                    ListItemView(image: "calendar.badge.plus", textLeft: "Date", textRight: DateHelper.getShortDateString(date: topic.startDate))
+                    ListItemView(image: "clock", textLeft: "Start Time", textRight: DateHelper.getTimeString(date: topic.startDate))
+                    ListItemView(image: "clock.fill", textLeft: "End Time", textRight: DateHelper.getTimeString(date: topic.endDate))
+                    ListItemView(image: "info.circle", textLeft: "Subject", textRight: topic.subject.name)
                 }
                 
                
@@ -45,16 +45,14 @@ struct TopicView: View {
                     HStack {
                         Text("Details")
                         Spacer()
-                        Button(action: { viewModel.openTextAlert = true }) {
+                        Button(action: { openTextAlert = true }) {
                            Text("EDIT")
                         }
                     }
                 ) {
-                    if(viewModel.topic.details != nil) {
-                        Text(viewModel.topic.details!)
-                    } else {
-                        Text("No topic details provided.")
-                    }
+                    
+                    Text(details)
+                    
                 }
                 
                 
@@ -77,7 +75,13 @@ struct TopicView: View {
         }
         .navigationTitle(Text(topic.name))
         .listStyle(InsetGroupedListStyle())
-        .textFieldAlert(isShowing: $viewModel.openTextAlert, text: $viewModel.details, title: "Change Topic Details")
+        .onChange(of: details) { value in
+            topic.details = value
+            TopicStorage.shared.update(uuid: topic.id!, values: ["details": value])
+                
+            
+        }
+        .textFieldAlert(isShowing: $openTextAlert, text: $details, title: "Change Topic Details")
     }
 }
 

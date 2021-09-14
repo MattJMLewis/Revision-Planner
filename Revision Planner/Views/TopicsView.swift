@@ -15,7 +15,7 @@ struct TopicsView: View {
 
     init(subject: Subject) {
         self.subject = subject
-        self.topics = TopicStorage.shared.fetchBySubject(subject: subject)
+        self.topics = []
     }
     
     func deleteTopic(indexSet: IndexSet) {
@@ -30,7 +30,7 @@ struct TopicsView: View {
         List {
             Section(header: Text("Topics")) {
                 ForEach(topics) { topic in
-                    NavigationLink(destination: TopicView(topic: topic)) {
+                    NavigationLink(destination: NavigationLazyView(TopicView(topic: topic))) {
                         HStack {
                             Text(topic.name)
                             Spacer()
@@ -42,6 +42,9 @@ struct TopicsView: View {
         }
         .navigationTitle("Topics")
         .listStyle(InsetGroupedListStyle())
+        .onAppear(perform: {
+            self.topics = TopicStorage.shared.fetchBySubject(subject: subject)
+        })
     }
 }
 
