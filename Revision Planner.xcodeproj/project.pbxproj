@@ -694,6 +694,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Revision Planner/Revision Planner.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Revision Planner/Preview Content\"";
 				DEVELOPMENT_TEAM = YWGPPK985L;
 				ENABLE_BITCODE = NO;
@@ -727,6 +728,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Revision Planner/Revision Planner.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Revision Planner/Preview Content\"";
 				DEVELOPMENT_TEAM = YWGPPK985L;
 				ENABLE_PREVIEWS = YES;
